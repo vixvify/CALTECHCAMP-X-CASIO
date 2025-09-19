@@ -6,7 +6,7 @@ import AOS from 'aos';
 
 import Home from './components/Home';
 import Qualifications from './components/Qualificatioins';
-import TimelinePage from './components/timeline';
+import TimelinePage from './components/Timeline';
 
 export default function Page() {
   useEffect(() => {
