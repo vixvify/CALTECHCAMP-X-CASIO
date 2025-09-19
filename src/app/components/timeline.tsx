@@ -1,24 +1,24 @@
 export default function Timeline() {
   return (
     <div>
-      <div className="flex items-center justify-center gap-40 min-w-[100vw]">
-        <div className="text-white text-center flex flex-col items-center text-2xl m-5 justify-center">
+      <div className="flex min-w-[100vw] items-center justify-center gap-40">
+        <div className="m-5 text-center text-2xl text-white">
           <h1>เปิดรับสมัคร</h1>
-          <div>8-15 ตุลาคม 2568</div>
+          <h1>8-15 ตุลาคม 2568</h1>
         </div>
-        <div className="text-white flex flex-col items-center text-2xl m-5 justify-center">
-          <div>ประกาศผลและยืนยันสิทธิ์</div>
-          <div>20-23 ตุลาคม 2568</div>
+        <div className="m-5 text-center text-2xl text-white">
+          <h1>ประกาศผลและยืนยันสิทธิ์</h1>
+          <h1>20-23 ตุลาคม 2568</h1>
         </div>
-        <div className="text-white flex flex-col items-center text-2xl m-5 justify-center">
-          <div>Pre-camp</div>
-          <div>17 พฤศจิกายน 2568</div>
+        <div className="m-5 text-center text-2xl text-white">
+          <h1>Pre-camp</h1>
+          <h1>17 พฤศจิกายน 2568</h1>
         </div>
-        <div className="text-white flex flex-col items-center text-2xl m-5 justify-center">
-          <div>วันค่าย</div>
-          <div>8-15 พฤศจิกายน 2568</div>
+        <div className="m-5 text-center text-2xl text-white">
+          <h1>วันค่าย</h1>
+          <h1>8-15 พฤศจิกายน 2568</h1>
         </div>
       </div>
     </div>
   );
-  }
+}
