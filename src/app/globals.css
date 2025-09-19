@@ -1,8 +1,4 @@
-@import "tailwindcss";
-
-:root {
-  --background: #2c2694;
-}
+@import 'tailwindcss';
 
 @theme inline {
   --color-background: var(--background);
@@ -10,14 +6,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-  }
-}
-
 body {
   background: #101557;
   color: var(--foreground);
   font-family: var(--font-kanit);
+  overflow-x: hidden;
 }

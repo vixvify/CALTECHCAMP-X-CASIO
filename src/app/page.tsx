@@ -4,10 +4,10 @@ import Timeline from './components/timeline';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen w-full bg-[#101557]">
-      <div className="flex flex-col lg:flex-row items-start justify-center lg:gap-30 pt-10 lg:pt-20">
+    <div className="flex min-h-screen w-full flex-col items-center justify-start bg-[#101557]">
+      <div className="flex flex-col items-start justify-center pt-10 lg:flex-row lg:gap-30 lg:pt-20">
         <div className="flex flex-col items-start justify-center gap-5">
-          <div className="flex items-center justify-center mt-60 lg:gap-3">
+          <div className="mt-60 flex items-center justify-center lg:gap-3">
             <h1 className="font-bold text-white lg:text-4xl">
               CALCTECH CAMP X
             </h1>
@@ -27,12 +27,12 @@ export default function Home() {
             width={300}
             height={300}
             alt="คุณสมบัติ"
-            className="h-[250px] w-[150px] mt-20 rounded-2xl lg:h-[500px] lg:w-[300px]"
+            className="mt-20 h-[250px] w-[150px] rounded-2xl lg:h-[500px] lg:w-[300px]"
           />
         </div>
       </div>
 
-      <div className='overflow-x-hidden'>
+      <div>
         <Qualifications />
         <Timeline />
       </div>
