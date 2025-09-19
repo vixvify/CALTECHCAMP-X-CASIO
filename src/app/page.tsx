@@ -36,7 +36,6 @@ export default function Home() {
         <Qualifications />
         <Timeline />
       </div>
-      <div></div>
     </div>
   );
 }
