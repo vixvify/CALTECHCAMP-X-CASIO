@@ -16,7 +16,7 @@ export default function Page() {
     });
   }, []);
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-start bg-[#101557] pt-15">
+    <div className="flex min-h-screen w-full flex-col items-center justify-start pt-15">
       <div data-aos="fade-up">
         <Home />
       </div>
