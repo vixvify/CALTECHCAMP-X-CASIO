@@ -1,6 +1,7 @@
 import { Kanit } from 'next/font/google';
 import './globals.css';
 import Nav from './components/Nav';
+import 'aos/dist/aos.css';
 
 const kanit = Kanit({
   subsets: ['thai', 'latin'],
