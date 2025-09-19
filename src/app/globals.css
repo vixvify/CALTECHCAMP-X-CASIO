@@ -6,6 +6,7 @@
 }
 
 body {
-background: linear-gradient(to left,#1e40af, #0E0C2F);  font-family: var(--font-kanit);
+  background: linear-gradient(to left, #1e40af, #0e0c2f);
+  font-family: var(--font-kanit);
   overflow-x: hidden;
 }

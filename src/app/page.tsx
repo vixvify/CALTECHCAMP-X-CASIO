@@ -6,7 +6,7 @@ import AOS from 'aos';
 
 import Home from './components/Home';
 import Qualifications from './components/Qualificatioins';
-import Timeline from './components/timeline';
+import TimelinePage from './components/timeline';
 
 export default function Page() {
   useEffect(() => {
@@ -16,15 +16,15 @@ export default function Page() {
     });
   }, []);
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-start pt-15 pb-15">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center pt-15 pb-15">
       <div data-aos="fade-up">
         <Home />
       </div>
       <div data-aos="fade-up">
         <Qualifications />
       </div>
-      <div data-aos="fade-up">
-        <Timeline />
+      <div className="w-[40vw]" data-aos="fade-up">
+        <TimelinePage />
       </div>
     </div>
   );
