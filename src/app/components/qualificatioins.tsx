@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-export default function Page() {
+export default function Qualifications() {
   return (
     <div className="flex justify-center items-center lg:gap-30 h-[100vh] w-[100vw]">
       <div className=" flex flex-col justify-center items-center gap-10 ">

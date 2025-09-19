@@ -1,11 +1,13 @@
 import Image from 'next/image';
+import Qualifications from './components/qualificatioins';
+import Timeline from './components/timeline';
 
 export default function Home() {
   return (
-    <div className="flex h-[100vh] w-[100vw] items-center justify-center">
-      <div className="flex items-start justify-center lg:gap-30">
-        <div className="flex flex-col items-start justify-center gap-5 lg:pt-20">
-          <div className="flex items-center justify-center lg:gap-3">
+    <div className="flex flex-col items-center justify-start min-h-screen w-full bg-[#101557]">
+      <div className="flex flex-col lg:flex-row items-start justify-center lg:gap-30 pt-10 lg:pt-20">
+        <div className="flex flex-col items-start justify-center gap-5">
+          <div className="flex items-center justify-center mt-60 lg:gap-3">
             <h1 className="font-bold text-white lg:text-4xl">
               CALCTECH CAMP X
             </h1>
@@ -25,9 +27,14 @@ export default function Home() {
             width={300}
             height={300}
             alt="คุณสมบัติ"
-            className="h-[250px] w-[150px] rounded-2xl lg:h-[500px] lg:w-[300px]"
-          ></Image>
+            className="h-[250px] w-[150px] mt-20 rounded-2xl lg:h-[500px] lg:w-[300px]"
+          />
         </div>
+      </div>
+
+      <div className='overflow-x-hidden'>
+        <Qualifications />
+        <Timeline />
       </div>
     </div>
   );
