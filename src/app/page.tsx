@@ -35,7 +35,6 @@ export default function Home() {
       <div className='overflow-x-hidden'>
         <Qualifications />
         <Timeline />
-        
       </div>
     </div>
   );
