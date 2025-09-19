@@ -17,6 +17,7 @@ export default function Timeline() {
         <div className="text-white text-2xl mb-5 gap-10 justify-center">
           <div>วันค่าย</div>
           <div>8-15 พฤศจิกายน 2568</div>
+          <div></div>
         </div>
       </div>
     </div>
