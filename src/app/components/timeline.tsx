@@ -1,55 +1,18 @@
-import * as React from 'react';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-
-export default function TimelinePage() {
+export default function Timeline() {
   return (
-    <Timeline position="alternate">
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          {' '}
-          <h1 className="text-2xl text-white">เปิดรับสมัคร</h1>
-          <h1 className="text-2xl text-white">8-15 ตุลาคม 2568</h1>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <h1 className="text-2xl text-white">ประกาศผลและยืนยันสิทธิ์</h1>
-          <h1 className="text-2xl text-white">20-23 ตุลาคม 2568</h1>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          {' '}
-          <h1 className="text-2xl text-white">Pre-camp</h1>
-          <h1 className="text-2xl text-white">17 พฤศจิกายน 2568</h1>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-        </TimelineSeparator>
-        <TimelineContent>
-          <h1 className="text-2xl text-white">วันค่าย</h1>
-          <h1 className="text-2xl text-white">8-15 พฤศจิกายน 2568</h1>
-        </TimelineContent>
-      </TimelineItem>
-    </Timeline>
+    <div className="relative">
+
+      <div className="absolute left-5 top-0 h-full w-1 bg-gray-600"></div>
+
+      <div className="flex flex-col gap-50">
+            <div className="relative">
+              <div className="w-10 h-10 rounded-full bg-amber-300"></div>
+            </div>
+            <div className="text-white">
+              <h2 className="text-xl font-bold">กิจกรรม</h2>
+              <p className="text-gray-300">วันที่xxx</p>
+            </div>
+      </div>
+    </div>
   );
 }

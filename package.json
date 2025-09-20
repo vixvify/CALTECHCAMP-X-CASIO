@@ -16,7 +16,11 @@
     "@prisma/client": "^6.16.2",
     "aos": "^2.3.4",
     "bcryptjs": "^3.0.2",
+<<<<<<< HEAD
     "chart.js": "^4.5.0",
+=======
+    "framer-motion": "^12.23.16",
+>>>>>>> 53a37d0406463430b2be24a6f07beb0b27dfe2d0
     "next": "15.5.3",
     "next-auth": "^4.24.11",
     "react": "19.1.0",
