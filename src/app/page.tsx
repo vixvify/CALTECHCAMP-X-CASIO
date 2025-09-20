@@ -11,6 +11,9 @@ import Place from './components/Place';
 
 export default function Page() {
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
