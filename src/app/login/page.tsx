@@ -74,7 +74,7 @@ export default function page() {
           ></input>
           <button
             type="submit"
-            className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black"
+            className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black disabled:opacity-50"
             disabled={!canSend}
           >
             เข้าสู่ระบบ
