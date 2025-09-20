@@ -82,11 +82,14 @@ export default function page() {
           <button
             type="button"
             className="mt-2 flex h-15 cursor-pointer items-center justify-center gap-4 rounded-xl border-2 border-white text-xl text-white"
+            onClick={() => signIn('google')}
           >
             <FcGoogle /> เข้าสู่ระบบด้วย Google
           </button>
           <div className="flex items-center justify-center gap-5">
-            <p className="text-white">ลืมรหัสผ่าน</p>
+            <Link href={'/forgotPassword'}>
+              <p className="text-white">ลืมรหัสผ่าน</p>
+            </Link>
             <Link href={'/register'}>
               <p className="text-sky-300">สร้างบัญชี</p>
             </Link>
