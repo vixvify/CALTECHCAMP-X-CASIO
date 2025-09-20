@@ -32,9 +32,7 @@ export default function Nav() {
             </li>
           </Link>
           <li className="text-white">รายละเอียด</li>
-          <Link href={'/qualifications'}>
-            <li className="text-white">คุณสมบัติ</li>
-          </Link>
+          <li className="text-white">คุณสมบัติ</li>
           <li className="text-white">Timelines</li>
           <li className="text-white">สถานที่</li>
           <Link href={'/admin'}>
