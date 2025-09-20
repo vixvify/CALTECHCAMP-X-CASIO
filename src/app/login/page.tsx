@@ -79,7 +79,10 @@ export default function page() {
           >
             เข้าสู่ระบบ
           </button>
-          <button className="mt-2 flex h-15 cursor-pointer items-center justify-center gap-4 rounded-xl border-2 border-white text-xl text-white">
+          <button
+            type="button"
+            className="mt-2 flex h-15 cursor-pointer items-center justify-center gap-4 rounded-xl border-2 border-white text-xl text-white"
+          >
             <FcGoogle /> เข้าสู่ระบบด้วย Google
           </button>
           <div className="flex items-center justify-center gap-5">
