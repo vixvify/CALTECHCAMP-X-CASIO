@@ -7,7 +7,7 @@ import AOS from 'aos';
 import Home from './components/Home';
 import Qualifications from './components/Qualificatioins';
 import Timeline from './components/Timeline';
-import Place from './components/place';
+import Place from './components/Place';
 
 export default function Page() {
   useEffect(() => {
@@ -25,6 +25,7 @@ export default function Page() {
         <Qualifications />
       </div>
       <div className="w-[40vw]">
+        <h1 className="pb-10 text-left text-3xl text-white">Timelines</h1>
         <Timeline />
       </div>
       <div data-aos="fade-up">

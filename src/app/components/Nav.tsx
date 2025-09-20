@@ -38,7 +38,11 @@ export default function Nav() {
           <Link href={'/admin'}>
             <li className="text-white">แอดมิน</li>
           </Link>
-          <li className="rounded-2xl bg-white p-3 text-[#101557]">ลงทะเบียน</li>
+          <Link href={'/login'}>
+            <li className="rounded-2xl bg-white p-3 text-[#101557]">
+              ลงทะเบียน
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>

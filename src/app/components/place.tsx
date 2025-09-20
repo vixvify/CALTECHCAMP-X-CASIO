@@ -1,7 +1,3 @@
-export default function Placce(){
-    return(
-        <div>
-            
-        </div>
-    );
-};
+export default function Place() {
+  return <div></div>;
+}
