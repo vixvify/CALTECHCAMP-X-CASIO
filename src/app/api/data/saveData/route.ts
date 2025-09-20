@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ msg: 'กรุณากรอกข้อมูลให้ครบ' }, { status: 400 });
   }
   try {
-    await prisma.user.create({ data });
+    await prisma.form.create({ data });
     return NextResponse.json({ msg: 'สมัครสำเร็จ' }, { status: 201 });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 400 });
