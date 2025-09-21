@@ -29,10 +29,12 @@ export const authOptions: NextAuthOptions = {
 
         if (!user) return null;
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = user.password
+          ? await bcrypt.compare(password, user.password)
+          : false;
         if (!isMatch) return null;
 
-        return { id: user.id, username: user.username };
+        return { id: user.id, username: user.username, email: user.email };
       },
     }),
   ],
@@ -40,12 +42,40 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === 'google') {
+        let existingUser = await prisma.user.findUnique({
+          where: { email: user.email! },
+        });
+
+        if (!existingUser) {
+          await prisma.user.create({
+            data: {
+              username: user.name ?? user.email!.split('@')[0],
+              password: null,
+              email: user.email as string,
+            },
+          });
+        }
+      }
+      return true;
+    },
     async jwt({ token, user }: { token: JWT; user: any }) {
-      if (user) token.username = user.username;
+      if (user) {
+        token.id = user.id;
+        token.username = user.username;
+        token.email = user.email;
+      }
       return token;
     },
     async session({ session, token }: { session: any; token: JWT }) {
-      if (token) session.name = token.username;
+      if (token) {
+        session.user = {
+          id: token.id,
+          name: token.username,
+          email: token.email,
+        };
+      }
       return session;
     },
   },

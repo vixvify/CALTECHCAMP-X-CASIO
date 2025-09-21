@@ -1,11 +1,53 @@
 'use client';
 import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function Nav() {
   const [open, isOpen] = useState(false);
+  const { data: session } = useSession();
+  const [isLogin, setIsLogin] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      setIsLogin(true);
+    } else {
+      console.log('no session');
+    }
+  }, [session]);
+
+  const logout = () => {
+    Swal.fire({
+      title: 'ต้องการออกจากระบบหรือไม่',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ออกจากระบบ',
+      cancelButtonText: 'ยกเลิก',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          signOut();
+        }
+      })
+      .then(() => {
+        Swal.fire({
+          title: 'ออกจากระบบสำเร็จ',
+          icon: 'success',
+          draggable: true,
+        });
+      })
+      .then(() => {
+        router.push('/');
+      });
+  };
 
   return (
     <div>
@@ -38,11 +80,30 @@ export default function Nav() {
           <Link href={'/admin'}>
             <li className="text-white">แอดมิน</li>
           </Link>
-          <Link href={'/login'}>
-            <li className="rounded-2xl bg-white p-3 text-[#101557]">
-              ลงทะเบียน
+          {!isLogin && (
+            <Link href={'/login'}>
+              <li className="cursor-pointer text-white">เข้าสู่ระบบ</li>
+            </Link>
+          )}
+          {isLogin && (
+            <li className="cursor-pointer text-white" onClick={logout}>
+              ออกจากระบบ
             </li>
-          </Link>
+          )}
+          {!isLogin && (
+            <Link href={'/register'}>
+              <li className="rounded-2xl bg-white p-3 text-[#101557]">
+                ลงทะเบียน
+              </li>
+            </Link>
+          )}
+          {isLogin && (
+            <Link href={'/login'}>
+              <li className="rounded-2xl bg-white p-3 text-[#101557]">
+                สมัครค่าย
+              </li>
+            </Link>
+          )}
         </ul>
       </nav>
     </div>

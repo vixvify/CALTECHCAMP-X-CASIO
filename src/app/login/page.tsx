@@ -47,6 +47,10 @@ export default function page() {
     }
   };
 
+  const loginGoogle = async () => {
+    await signIn('google', { callbackUrl: '/' });
+  };
+
   useEffect(() => {
     if (!username || !password) {
       setCanSend(false);
@@ -82,7 +86,7 @@ export default function page() {
           <button
             type="button"
             className="mt-2 flex h-15 cursor-pointer items-center justify-center gap-4 rounded-xl border-2 border-white text-xl text-white"
-            onClick={() => signIn('google')}
+            onClick={loginGoogle}
           >
             <FcGoogle /> เข้าสู่ระบบด้วย Google
           </button>
