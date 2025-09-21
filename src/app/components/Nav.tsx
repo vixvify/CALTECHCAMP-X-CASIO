@@ -18,7 +18,7 @@ export default function Nav() {
     if (session) {
       setIsLogin(true);
     } else {
-      console.log('no session');
+      setIsLogin(false);
     }
   }, [session]);
 
@@ -91,16 +91,16 @@ export default function Nav() {
             </li>
           )}
           {!isLogin && (
-            <Link href={'/register'}>
+            <Link href={'/applyCamp'}>
               <li className="rounded-2xl bg-white p-3 text-[#101557]">
-                ลงทะเบียน
+                สมัครค่าย
               </li>
             </Link>
           )}
           {isLogin && (
             <Link href={'/applyCamp'}>
               <li className="rounded-2xl bg-white p-3 text-[#101557]">
-                สมัครค่าย
+                ติดตามสถานะการสมัคร
               </li>
             </Link>
           )}

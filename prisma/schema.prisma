@@ -10,17 +10,15 @@ datasource db {
 
 model User {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
+  team String  @unique
+  school String
+  email String @unique
+  call String
+  name1 String 
+  name2 String 
+  name3 String 
+  url String
+  clip String
   username  String @unique
   password String? 
-  email String @unique
-}
-
-model Form {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name String @unique
-  age Int
-  school String
-  call Int
-  clip String
-  url String
 }
