@@ -109,7 +109,7 @@ export default function Nav() {
             </Link>
           )}
           {isLogin && (
-            <Link href={'/applyCamp'}>
+            <Link href={'/Status'}>
               <li className="rounded-2xl bg-white p-3 text-[#101557]">
                 ติดตามสถานะการสมัคร
               </li>
