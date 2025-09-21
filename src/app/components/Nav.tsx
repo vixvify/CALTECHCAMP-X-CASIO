@@ -71,7 +71,7 @@ export default function Nav() {
             open ? 'translate-x-0' : '-translate-x-full'
           } h-[100vh] w-[35vw] transition-transform duration-500 ease-in-out lg:left-[50%] lg:h-[100px] lg:w-[50%] lg:-translate-x-1/2 lg:transform lg:text-xl lg:text-white lg:transition-none`}
         >
-          <Link href={'/'}>
+          <a href={'/'}>
             <li>
               <Image
                 src="/calc.png"
@@ -81,11 +81,16 @@ export default function Nav() {
                 className="h-0 w-0 lg:h-[60px] lg:w-[60px]"
               ></Image>
             </li>
-          </Link>
-          <li className="text-white">รายละเอียด</li>
-          <li className="text-white">คุณสมบัติ</li>
-          <li className="text-white">กำหนดการ</li>
-          <li className="text-white">สถานที่</li>
+          </a>
+          <a href={'#qualification'}>
+            <li className="text-white">คุณสมบัติ</li>
+          </a>
+          <a href={'#timeline'}>
+            <li className="text-white">กำหนดการ</li>
+          </a>
+          <a href={'#place'}>
+            <li className="text-white">สถานที่</li>
+          </a>
           {isAdmin && (
             <Link href={'/admin'}>
               <li className="text-white">แอดมิน</li>

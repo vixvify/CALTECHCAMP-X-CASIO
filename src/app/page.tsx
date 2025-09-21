@@ -5,8 +5,8 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 import Home from './components/Home';
-import Qualifications from './components/Qualificatioins';
-import Timeline from './components/Timeline';
+import Qualifications from './components/qualificatioins';
+import Timeline from './components/timeline';
 import Place from './components/place';
 
 export default function Page() {
@@ -22,19 +22,19 @@ export default function Page() {
   }, []);
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center pt-15 pb-15">
-      <div data-aos="fade-up">
+      <section data-aos="fade-up" id="home">
         <Home />
-      </div>
-      <div data-aos="fade-up">
+      </section>
+      <section data-aos="fade-up" id="qualification">
         <Qualifications />
-      </div>
-      <div className="w-[40vw]">
+      </section>
+      <section className="w-[40vw]" id="timeline">
         <h1 className="pb-20 text-left text-4xl text-white">กำหนดการ</h1>
         <Timeline />
-      </div>
-      <div data-aos="fade-up">
+      </section>
+      <section data-aos="fade-up" id="place">
         <Place />
-      </div>
+      </section>
     </div>
   );
 }
