@@ -12,12 +12,11 @@ export default function Home() {
           </h1>
           <h1 className="font-bold text-white lg:text-4xl">คืออะไร ?</h1>
         </div>
-        <p className="max-w-[200px] text-left text-white lg:max-w-[500px] lg:text-2xl">
-          calctech camp x casioคือค่ายการแข่งขัน
-          ประกวดนวัตกรรมตามหลัก “ SDGs ”ที่จะพาน้องๆมารู้จัก
-          และได้เรียนรู้ไปกับโลกของคณิตศาสตร์พร้อมกับ
-          เครื่องคิดเลขวิทยาศาสตร์และนำความรู้ที่ได้มาประยุกต์
-          กับนวัตรกรรมพร้อมทั้งกิจกรรม และ workshop ที่จัดขึ้นภายในค่ายเป็นเวลา 3 วัน 2 คืน
+        <p className="max-w-[200px] text-left text-white lg:max-w-[600px] lg:text-2xl">
+          Calctech Camp x Casio ค่ายแข่งขันนวัตกรรมตามหลัก SDGs ที่พาน้องๆ 
+          <span className='font-bold text-transparent bg-clip-text bg-gradient-to-r bg-amber-400 to-amber-200'>
+            เรียนรู้คณิตศาสตร์กับเครื่องคิดเลขวิทยาศาสตร์</span> 
+            พร้อมกิจกรรมและเวิร์กชอปสุดเข้มข้นตลอด 3 วัน 2 คืน
         </p>
       </div>
       <div>
