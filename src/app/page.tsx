@@ -29,7 +29,7 @@ export default function Page() {
         <Qualifications />
       </div>
       <div className="w-[40vw]">
-        <h1 className="pb-10 text-left text-3xl text-white">Timelines</h1>
+        <h1 className="pb-20 text-left text-4xl text-white">กำหนดการ</h1>
         <Timeline />
       </div>
       <div data-aos="fade-up">
