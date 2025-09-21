@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function page() {
   interface User {
@@ -49,6 +50,8 @@ export default function page() {
   const [confirmPass, setConfirmPass] = useState('');
   const [canSend, setCanSend] = useState(false);
   const router = useRouter();
+  const { data: session } = useSession();
+  const [isFilled, setIsFilled] = useState(false);
 
   const inputValue = (topic: string) => {
     return (e: any) => setUser({ ...user, [topic]: e.target.value });
@@ -88,8 +91,47 @@ export default function page() {
   };
 
   useEffect(() => {
+    if (
+      team &&
+      call &&
+      school &&
+      name1 &&
+      name2 &&
+      name3 &&
+      url &&
+      clip &&
+      username &&
+      password &&
+      email &&
+      confirmPass
+    ) {
+      setIsFilled(true);
+    } else {
+      setIsFilled(false);
+    }
+  }, [
+    team,
+    call,
+    name1,
+    name2,
+    name3,
+    url,
+    clip,
+    username,
+    password,
+    email,
+    confirmPass,
+  ]);
+
+  useEffect(() => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isEmail = regex.test(email);
+    const checkUrl =
+      /^(?:https?:\/\/)?(?:drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=))([a-zA-Z0-9_-]{10,})/;
+    const checkClip =
+      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const isUrl = checkUrl.test(url);
+    const isClip = checkClip.test(clip);
     const upper = /[A-Z]/;
     const lower = /[a-z]/;
     const num = /[0-9]/;
@@ -97,22 +139,13 @@ export default function page() {
     const hasLower = lower.test(password);
     const hasNum = num.test(password);
     if (
-      !team ||
-      !call ||
-      !school ||
-      !name1 ||
-      !name2 ||
-      !name3 ||
-      !url ||
-      !clip ||
-      !username ||
-      !password ||
-      !email ||
-      !confirmPass ||
+      !isFilled ||
       !isEmail ||
       !hasUpper ||
       !hasLower ||
-      !hasNum
+      !hasNum ||
+      !isClip ||
+      !isUrl
     ) {
       setCanSend(false);
     } else if (password !== confirmPass) {
@@ -120,7 +153,13 @@ export default function page() {
     } else {
       setCanSend(true);
     }
-  }, [username, password, confirmPass, email]);
+  }, [username, password, confirmPass, email, isFilled]);
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session]);
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
@@ -134,7 +173,12 @@ export default function page() {
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('team')}
           ></input>
-          <p className="text-xl text-white">โรงเรียน</p>
+          <div className="">
+            <p className="text-xl text-white">โรงเรียน</p>
+            <p className="text-white">
+              (ไม่ต้องใส่คำว่า โรงเรียน เช่น พระนครศึกษา)
+            </p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
@@ -155,19 +199,28 @@ export default function page() {
           <p className="mt-5 text-3xl font-extrabold text-white">
             รายละเอียดผู้สมัคร
           </p>
-          <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 1</p>
+          <div className="">
+            <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 1</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('name1')}
           ></input>
-          <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 2</p>
+          <div className="">
+            <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 2</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('name2')}
           ></input>
-          <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 3</p>
+          <div className="">
+            <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 3</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
@@ -211,6 +264,11 @@ export default function page() {
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={(e: any) => setConfirmPass(e.target.value)}
           ></input>
+          {!isFilled && (
+            <p className="text-xl font-extrabold text-amber-500">
+              กรุณากรอกข้อมูลให้ครบและถูกต้อง
+            </p>
+          )}
           <button
             type="submit"
             className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black disabled:opacity-50"

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import { useSession } from 'next-auth/react';
 
 export default function page() {
   interface User {
@@ -16,6 +17,7 @@ export default function page() {
   const { username, password } = user;
   const [canSend, setCanSend] = useState(false);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const inputValue = (topic: string) => {
     return (e: any) => setUser({ ...user, [topic]: e.target.value });
@@ -69,6 +71,12 @@ export default function page() {
     }
   }, [username, password]);
 
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session]);
+
   return (
     <div className="flex flex-col items-center justify-center pt-35">
       <h1 className="text-5xl font-bold text-white">เข้าสู่ระบบ</h1>
@@ -104,7 +112,7 @@ export default function page() {
             <Link href={'/forgotPassword'}>
               <p className="text-white">ลืมรหัสผ่าน</p>
             </Link>
-            <Link href={'/register'}>
+            <Link href={'/applyCamp'}>
               <p className="text-sky-300">สร้างบัญชี</p>
             </Link>
           </div>

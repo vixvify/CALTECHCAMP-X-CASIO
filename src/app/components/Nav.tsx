@@ -13,12 +13,21 @@ export default function Nav() {
   const { data: session } = useSession();
   const [isLogin, setIsLogin] = useState(false);
   const router = useRouter();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (session) {
       setIsLogin(true);
     } else {
       setIsLogin(false);
+    }
+  }, [session]);
+
+  useEffect(() => {
+    console.log(session);
+
+    if (session && (session as any).user.admin) {
+      setIsAdmin(true);
     }
   }, [session]);
 
@@ -77,9 +86,11 @@ export default function Nav() {
           <li className="text-white">คุณสมบัติ</li>
           <li className="text-white">กำหนดการ</li>
           <li className="text-white">สถานที่</li>
-          <Link href={'/admin'}>
-            <li className="text-white">แอดมิน</li>
-          </Link>
+          {isAdmin && (
+            <Link href={'/admin'}>
+              <li className="text-white">แอดมิน</li>
+            </Link>
+          )}
           {!isLogin && (
             <Link href={'/login'}>
               <li className="cursor-pointer text-white">เข้าสู่ระบบ</li>
