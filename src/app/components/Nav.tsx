@@ -75,7 +75,7 @@ export default function Nav() {
           </Link>
           <li className="text-white">รายละเอียด</li>
           <li className="text-white">คุณสมบัติ</li>
-          <li className="text-white">Timelines</li>
+          <li className="text-white">กำหนดการ</li>
           <li className="text-white">สถานที่</li>
           <Link href={'/admin'}>
             <li className="text-white">แอดมิน</li>
