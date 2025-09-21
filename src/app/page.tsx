@@ -7,7 +7,7 @@ import AOS from 'aos';
 import Home from './components/Home';
 import Qualifications from './components/Qualificatioins';
 import Timeline from './components/Timeline';
-import Place from './components/Place';
+import Place from './components/place';
 
 export default function Page() {
   useEffect(() => {

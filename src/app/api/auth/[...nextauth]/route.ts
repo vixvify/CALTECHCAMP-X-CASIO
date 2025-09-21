@@ -44,18 +44,11 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === 'google') {
-        let existingUser = await prisma.user.findUnique({
+        const existingUser = await prisma.user.findUnique({
           where: { email: user.email! },
         });
-
         if (!existingUser) {
-          await prisma.user.create({
-            data: {
-              username: user.name ?? user.email!.split('@')[0],
-              password: null,
-              email: user.email as string,
-            },
-          });
+          return '/applyCamp';
         }
       }
       return true;

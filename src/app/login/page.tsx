@@ -51,7 +51,14 @@ export default function page() {
   };
 
   const loginGoogle = async () => {
-    await signIn('google', { callbackUrl: '/' });
+    try {
+      await signIn('google', { callbackUrl: '/' });
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'ผู้สมัครต้องสมัครเข้าร่วมค่ายก่อน',
+      });
+    }
   };
 
   useEffect(() => {
