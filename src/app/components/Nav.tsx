@@ -40,22 +40,17 @@ export default function Nav() {
       cancelButtonColor: '#d33',
       confirmButtonText: 'ออกจากระบบ',
       cancelButtonText: 'ยกเลิก',
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          signOut();
-        }
-      })
-      .then(() => {
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut();
         Swal.fire({
           title: 'ออกจากระบบสำเร็จ',
           icon: 'success',
           draggable: true,
         });
-      })
-      .then(() => {
         router.push('/');
-      });
+      }
+    });
   };
 
   return (
