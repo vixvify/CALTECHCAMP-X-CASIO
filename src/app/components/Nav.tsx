@@ -60,7 +60,7 @@ export default function Nav() {
         <ul
           className={`absolute top-0 left-0 flex transform flex-col items-center gap-10 bg-transparent pt-15 backdrop-blur-xl lg:fixed lg:w-[100vw] lg:flex-row lg:justify-center lg:gap-15 lg:pt-0 ${
             open ? 'translate-x-0' : '-translate-x-full'
-          } h-[100vh] w-[35vw] transition-transform duration-500 ease-in-out lg:left-[50%] lg:h-[100px] lg:w-[50%] lg:-translate-x-1/2 lg:transform lg:text-2xl lg:text-white lg:transition-none`}
+          } h-[100vh] w-[35vw] transition-transform duration-500 ease-in-out lg:left-[50%] lg:h-[100px] lg:w-[50%] lg:-translate-x-1/2 lg:transform lg:text-xl lg:text-white lg:transition-none`}
         >
           <Link href={'/'}>
             <li>
@@ -69,7 +69,7 @@ export default function Nav() {
                 width={150}
                 height={150}
                 alt="logo"
-                className="h-0 w-0 lg:h-[150px] lg:w-[150px]"
+                className="h-0 w-0 lg:h-[100px] lg:w-[100px]"
               ></Image>
             </li>
           </Link>
