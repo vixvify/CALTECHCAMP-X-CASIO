@@ -33,8 +33,13 @@ export default function page() {
         draggable: true,
       });
       router.push('/login');
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
+
+      Swal.fire({
+        icon: 'error',
+        title: err.response.data.msg,
+      });
     }
   };
 

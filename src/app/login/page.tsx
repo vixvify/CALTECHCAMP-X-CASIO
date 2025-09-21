@@ -39,7 +39,11 @@ export default function page() {
         });
         router.push('/');
       } else {
-        alert('Login failed');
+        Swal.fire({
+          icon: 'error',
+          title: 'เข้าสู่ระบบไม่สำเร็จ',
+          footer: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+        });
       }
     } catch (err) {
       console.log(err);
