@@ -11,16 +11,15 @@ export default function page() {
     username: string;
     password: string;
   }
-  const [user, setUser] = useState<User>({ username: '', password: '' });
 
+  const [user, setUser] = useState<User>({ username: '', password: '' });
   const { username, password } = user;
+  const [canSend, setCanSend] = useState(false);
+  const router = useRouter();
 
   const inputValue = (topic: string) => {
     return (e: any) => setUser({ ...user, [topic]: e.target.value });
   };
-
-  const [canSend, setCanSend] = useState(false);
-  const router = useRouter();
 
   const sendData = async (e: any) => {
     e.preventDefault();

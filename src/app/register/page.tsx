@@ -18,10 +18,8 @@ export default function page() {
   });
 
   const { username, password, email } = user;
-
   const [confirmPass, setConfirmPass] = useState('');
   const [canSend, setCanSend] = useState(false);
-
   const router = useRouter();
 
   const inputValue = (topic: string) => {
