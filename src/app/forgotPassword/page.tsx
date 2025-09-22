@@ -24,7 +24,7 @@ export default function page() {
     Swal.fire('กำลังรีเซ็ตรหัสผ่าน');
     try {
       await axios.patch(
-        `${process.env.NEXT_PUBLIC_API}/user/resetPassword`,
+        `${process.env.NEXT_PUBLIC_API}/data/resetPassword`,
         user,
       );
       Swal.fire({

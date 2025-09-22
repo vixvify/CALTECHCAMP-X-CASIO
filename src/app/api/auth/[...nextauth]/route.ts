@@ -34,11 +34,16 @@ export const authOptions: NextAuthOptions = {
           : false;
         if (!isMatch) return null;
 
+        const isAdmin = await bcrypt.compare(
+          'hexTeam2550',
+          (user as any).password,
+        );
+
         return {
           id: user.id,
           username: user.username,
           email: user.email,
-          password: user.password,
+          admin: isAdmin,
         };
       },
     }),
@@ -60,20 +65,10 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {
-        const isAdmin = user.password
-          ? await bcrypt.compare('teamHex2550', user.password)
-          : false;
-        if (isAdmin) {
-          token.id = user.id;
-          token.username = user.username;
-          token.email = user.email;
-          token.admin = true;
-        } else {
-          token.id = user.id;
-          token.username = user.username;
-          token.email = user.email;
-          token.admin = false;
-        }
+        token.id = user.id;
+        token.username = user.username;
+        token.email = user.email;
+        token.admin = user.admin;
       }
       return token;
     },

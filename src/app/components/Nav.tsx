@@ -24,8 +24,6 @@ export default function Nav() {
   }, [session]);
 
   useEffect(() => {
-    console.log(session);
-
     if (session && (session as any).user.admin) {
       setIsAdmin(true);
     }

@@ -64,7 +64,7 @@ export default function page() {
     });
     setCanSend(false);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API}/user/createData`, user);
+      await axios.post(`${process.env.NEXT_PUBLIC_API}/data/createData`, user);
       Swal.fire({
         title: 'สมัครสำเร็จ',
         icon: 'success',
