@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 export default function page() {
   const [data, setData] = useState([]);
@@ -16,6 +17,38 @@ export default function page() {
       );
       setData(res.data.data);
       setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const confirmRemove = async (id: string) => {
+    Swal.fire({
+      title: 'ต้องการลบข้อมูลหรือไม่?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ลบข้อมูล',
+      cancelButtonText: 'ยกเลิก',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeData(id);
+      }
+    });
+  };
+
+  const removeData = async (id: string) => {
+    try {
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_API}/data/removeData/${id}`,
+      );
+      Swal.fire({
+        title: 'ลบข้อมูลสำเร็จ',
+        icon: 'success',
+        draggable: true,
+      });
+      getData();
     } catch (err) {
       console.log(err);
     }
@@ -47,17 +80,38 @@ export default function page() {
               {data.map((e: any, index) => {
                 return (
                   <li
-                    className="grid w-full cursor-pointer grid-cols-4 items-center justify-center gap-x-4 border-b border-gray-500 py-2 text-center text-white"
+                    className="grid w-full grid-cols-4 items-center justify-center gap-x-4 border-b border-gray-500 py-2 text-center text-white"
                     key={index}
-                    onClick={() => router.push(`/admin/singleData/${e.id}`)}
                   >
-                    <h1>{e.idea}</h1>
+                    <h1
+                      onClick={() => router.push(`/admin/singleData/${e.id}`)}
+                      className="cursor-pointer"
+                    >
+                      {e.idea}
+                    </h1>
                     <h1>{e.email}</h1>
                     <h1>{e.stats}</h1>
                     <div className="flex items-center justify-center gap-3">
-                      <h1>🗑️</h1>
-                      <h1>✏️</h1>
-                      <h1>⚙️</h1>
+                      <h1
+                        className="cursor-pointer"
+                        onClick={() => confirmRemove(e.id)}
+                      >
+                        🗑️
+                      </h1>
+                      <h1
+                        className="cursor-pointer"
+                        onClick={() => router.push(`/admin/editData/${e.id}`)}
+                      >
+                        ✏️
+                      </h1>
+                      <h1
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/admin/updateStats/${e.id}`)
+                        }
+                      >
+                        ⚙️
+                      </h1>
                     </div>
                   </li>
                 );
