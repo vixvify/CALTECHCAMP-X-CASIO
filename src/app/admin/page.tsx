@@ -1,6 +1,7 @@
 'use client';
 
 import DoughnutChart from './DoughnutChart';
+import Link from 'next/link';
 
 export default function page() {
   const data: number[] = [500, 100, 30];
@@ -21,6 +22,11 @@ export default function page() {
           <h1 className="text-4xl font-extrabold">30</h1>
         </div>
       </div>
+      <Link href={'/admin/manageData'}>
+        <h1 className="rounded-2xl bg-red-600 p-5 text-3xl font-bold text-white">
+          จัดการข้อมูลผู้สมัคร
+        </h1>
+      </Link>
       <div className="h-[400px] w-[400px]">
         <DoughnutChart
           labels={[
@@ -30,21 +36,6 @@ export default function page() {
           ]}
           data={data}
         />
-      </div>
-      <h1 className="text-4xl font-bold text-white">จัดการข้อมูลผู้สมัคร</h1>
-      <div className="flex items-center justify-center gap-5">
-        <button className="rounded-2xl bg-green-700 p-5 text-xl text-white">
-          ตัดสินผู้สมัคร
-        </button>
-        <button className="rounded-2xl bg-sky-700 p-5 text-xl text-white">
-          ดูข้อมูลผู้สมัคร
-        </button>
-        <button className="rounded-2xl bg-amber-600 p-5 text-xl text-white">
-          แก้ไขข้อมูลผู้สมัคร
-        </button>
-        <button className="rounded-2xl bg-red-500 p-5 text-xl text-white">
-          ลบข้อมูลผู้สมัคร
-        </button>
       </div>
     </div>
   );

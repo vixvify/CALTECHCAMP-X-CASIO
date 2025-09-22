@@ -54,6 +54,9 @@ export default function page() {
   const [isFilled, setIsFilled] = useState(false);
 
   const inputValue = (topic: string) => {
+    if (topic == 'call') {
+      return (e: any) => setUser({ ...user, [topic]: String(e.target.value) });
+    }
     return (e: any) => setUser({ ...user, [topic]: e.target.value });
   };
 
@@ -85,8 +88,19 @@ export default function page() {
         password: '',
       });
       router.push('/');
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      if (err.response.data.msg == 'isRegis') {
+        Swal.fire({
+          icon: 'error',
+          title: 'คุณได้สมัครค่ายนี้แล้ว',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'สมัครไม่สำเร็จ โปรดตรวจสอบข้อมูลอีกครั้ง',
+        });
+        setCanSend(true);
+      }
     }
   };
 
@@ -153,7 +167,7 @@ export default function page() {
     } else {
       setCanSend(true);
     }
-  }, [username, password, confirmPass, email, isFilled]);
+  }, [username, password, confirmPass, email, isFilled, clip, url, call]);
 
   useEffect(() => {
     if (session) {
@@ -167,7 +181,7 @@ export default function page() {
       <div className="bg-opacity-0 mt-10 mb-10 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-10 backdrop-blur-lg backdrop-filter lg:w-[40vw]">
         <form className="flex flex-col gap-5" onSubmit={sendData}>
           <p className="text-3xl font-extrabold text-white">รายละเอียดทีม</p>
-          <p className="text-xl text-white">ชื่อทีม</p>
+          <p className="text-xl text-white">ชื่อนวัตกรรม</p>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
@@ -192,7 +206,7 @@ export default function page() {
           ></input>
           <p className="text-xl text-white">เบอร์โทร (หัวหน้าทีม)</p>
           <input
-            type="text"
+            type="number"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('call')}
           ></input>
@@ -226,13 +240,28 @@ export default function page() {
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('name3')}
           ></input>
-          <p className="text-xl text-white">ลิงค์ Google Drive</p>
+          <div className="">
+            <p className="text-xl text-white">ลิงค์ Google Drive</p>
+            <p className="text-white">
+              (ประกอบด้วย ไฟล์ ปพ.1 หรือ ปพ.7 หรือ บัตรนักเรียน ของสมาชิกทุกคน)
+            </p>
+            <p className="text-white">
+              ตั้งชื่อดังนี้ "ชื่อเอกสาร-ลำดับของสมาชิก" เช่น "ปพ.1-1"
+              "บัตรนักเรียน-3"
+            </p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('url')}
           ></input>
-          <p className="text-xl text-white">ลิงค์คลิปแนะนำตัว Youtube</p>
+          <div className="">
+            <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
+            <p className="text-white">
+              ความยาวไม่เกิน 5 นาที เผยแพร่ผ่านช่องทาง Youtube โดยเปิดเป็น
+              Unlisted{' '}
+            </p>
+          </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"

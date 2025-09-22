@@ -25,6 +25,7 @@ export default function Timeline() {
   const { data: session } = useSession();
   const router = useRouter();
   const [stats, setStats] = useState('in_progress');
+  const [statsIndex, setStatsIndex] = useState(0);
 
   const getStats = async () => {
     try {
@@ -40,6 +41,18 @@ export default function Timeline() {
   useEffect(() => {
     getStats();
   }, []);
+
+  useEffect(() => {
+    if (stats == 'in_progress') {
+      setStatsIndex(0);
+    } else if (stats == 'pass_first' || stats == 'fail_first') {
+      setStatsIndex(1);
+    } else if (stats == 'pass_second' || stats == 'fail_second') {
+      setStatsIndex(2);
+    } else {
+      setStatsIndex(3);
+    }
+  }, [stats]);
 
   useEffect(() => {
     if (!session) {
@@ -60,20 +73,24 @@ export default function Timeline() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="relative">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-500">
-                <span
-                  className={`h-4 w-4 rounded-full bg-white ${stats == 'in_progress' && index == 0 ? 'opacity-100' : 'opacity-20'}`}
-                ></span>
+            <div
+              className={`flex items-center justify-center gap-5 rounded-2xl p-3 ${index == statsIndex ? 'border-2 border-white' : 'border-0'}`}
+            >
+              <div className="relative">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-500">
+                  <span
+                    className={`h-4 w-4 rounded-full bg-white ${index == statsIndex ? 'opacity-100' : 'opacity-20'}`}
+                  ></span>
+                </div>
               </div>
-            </div>
 
-            <div className="text-white">
-              <h2
-                className={`text-xl font-bold ${stats == 'in_progress' && index == 0 ? 'opacity-100' : 'opacity-20'}`}
-              >
-                {item.title}
-              </h2>
+              <div className="text-white">
+                <h2
+                  className={`text-xl font-bold ${index == statsIndex ? 'opacity-100' : 'opacity-20'}`}
+                >
+                  {item.title}
+                </h2>
+              </div>
             </div>
           </motion.div>
         ))}

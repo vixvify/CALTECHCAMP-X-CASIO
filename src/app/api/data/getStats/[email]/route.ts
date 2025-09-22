@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 import { PrismaClient } from '@/generated/prisma';
 
 export async function GET(req: NextRequest, { params }: any) {
-  const { id } = params;
+  const { email } = params;
   const prisma = new PrismaClient();
 
   try {
-    const res = await prisma.user.findUnique({ where: { email: id } });
+    const res = await prisma.user.findUnique({ where: { email } });
     return NextResponse.json({ stats: res?.stats }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 400 });
