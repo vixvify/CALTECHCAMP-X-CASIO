@@ -2,7 +2,7 @@ export default function Place() {
   return (
     <div>
         <div className="flex flex-col justify-center items-center">
-            <h1 className="text-white text-center text-sm mt-10 mb-6 
+            <h1 className="text-white text-center text-4xl mt-10 mb-6 
             md:text-2xl lg:text-4xl lg:mt-20 lg:mb-20 flex font-bold" id="place
             ">สถานที่จัดกิจกรรม</h1>
         </div>

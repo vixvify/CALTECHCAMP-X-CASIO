@@ -7,7 +7,7 @@ export default function Qualifications() {
                     md:gap-12 lg:flex-row lg:gap-16 lg:p-12">
  
       <div className="flex flex-col items-center justify-center gap-4 md:gap-6">
-        <h1 className="text-2xl font-bold text-white 
+        <h1 className="text-4xl font-bold text-white 
                        md:text-3xl 
                        lg:text-4xl">
           คุณสมบัติผู้สมัคร

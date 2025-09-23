@@ -29,7 +29,7 @@ export default function Page() {
         <Qualifications />
       </section>
       <section className="w-[40vw]" id="timeline">
-        <h1 className="pb-20 text-left text-4xl text-white">กำหนดการ</h1>
+        <h1 className="pb-20 text-left text-4xl font-bold text-white">กำหนดการ</h1>
         <Timeline />
       </section>
       <section data-aos="fade-up" id="place">
