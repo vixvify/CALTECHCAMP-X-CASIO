@@ -3,11 +3,13 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function page() {
   const [newstats, setStats] = useState('อยู่ระหว่างการคัดเลือก');
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
   const getStats = async () => {
     try {
@@ -34,6 +36,7 @@ export default function page() {
         icon: 'success',
         draggable: true,
       });
+      router.push('/admin/manageData');
     } catch (err) {
       Swal.fire({
         icon: 'error',
