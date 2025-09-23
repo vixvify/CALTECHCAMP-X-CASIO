@@ -55,7 +55,7 @@ export default function Nav() {
     <div>
       <nav className="relative z-999">
         <GiHamburgerMenu
-          className="absolute top-10 left-5 z-50 h-5 w-5 lg:hidden"
+          className="relative top-10 left-5 z-50 h-5 w-5 lg:hidden"
           style={{ color: 'white' }}
           onClick={() => isOpen(!open)}
         />
