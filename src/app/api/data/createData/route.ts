@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ msg: 'isRegis' }, { status: 400 });
     }
     const newPass = await bcrypt.hash(password, 10);
-    const newData = { ...data, password: newPass, stats: 'in_progress' };
+    const newData = { ...data, password: newPass, stats: 'อยู่ระหว่างการคัดเลือก' };
     await prisma.user.create({ data: newData });
     return NextResponse.json({ msg: 'สมัครค่ายสำเร็จ' }, { status: 201 });
   } catch (err) {
