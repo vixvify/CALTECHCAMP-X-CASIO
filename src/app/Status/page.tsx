@@ -30,7 +30,7 @@ export default function Timeline() {
   const getStats = async () => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/getStats/${session?.user?.email}`,
+        `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
       );
       setStats(res.data.stats);
     } catch (err) {
@@ -43,11 +43,18 @@ export default function Timeline() {
   }, []);
 
   useEffect(() => {
-    if (stats == 'in_progress') {
+    if (stats == 'อยู่ระหว่างการคัดเลือก') {
       setStatsIndex(0);
-    } else if (stats == 'pass_first' || stats == 'fail_first') {
+    } else if (
+      stats == 'ผ่านการคัดเลือก' ||
+      stats == 'เป็นตัวสำรอง' ||
+      stats == 'ไม่ผ่านการคัดเลือก'
+    ) {
       setStatsIndex(1);
-    } else if (stats == 'pass_second' || stats == 'fail_second') {
+    } else if (
+      stats == 'ผ่านการคัดเลือก (สำรอง)' ||
+      stats == 'ไม่ผ่านการคัดเลือก (สำรอง)'
+    ) {
       setStatsIndex(2);
     } else {
       setStatsIndex(3);
