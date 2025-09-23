@@ -5,9 +5,9 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 import Home from './components/Home';
-import Qualifications from './components/qualificatioins';
-import Timeline from './components/timeline';
-import Place from './components/place';
+import Qualifications from './components/Qualificatioins';
+import Timeline from './components/Timeline';
+import Place from './components/Place';
 
 export default function Page() {
   useEffect(() => {
