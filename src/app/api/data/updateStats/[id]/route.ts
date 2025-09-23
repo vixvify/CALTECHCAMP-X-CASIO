@@ -1,11 +1,17 @@
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@/generated/prisma';
+import { getToken } from 'next-auth/jwt';
 
 export async function PATCH(req: NextRequest, { params }: { params: any }) {
   const prisma = new PrismaClient();
   const { id } = params;
   const data = await req.json();
+  const token = await getToken({ req });
+
+  if (!token) {
+    return null;
+  }
 
   try {
     await prisma.user.update({ where: { id }, data });
