@@ -26,7 +26,7 @@ const timelineData = [
 export default function Timeline() {
   return (
     <div className="relative mx-auto max-w-xl md:max-w-2xl lg:max-w-4xl py-10 px-4">
-      <div className="absolute top-0 left-6 md:left-8 h-full w-1 bg-gray-600"></div>
+      <div className="absolute top-0 left-8 md:left-8 h-full w-1 bg-gray-600"></div>
 
       <div className="flex flex-col gap-8 md:gap-12 lg:gap-16">
         {timelineData.map((item, index) => (
