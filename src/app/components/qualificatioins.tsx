@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import 'aos/dist/aos.css';
 
 export default function Qualifications() {
   return (
