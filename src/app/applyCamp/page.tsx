@@ -16,6 +16,15 @@ export default function page() {
     name3: string;
     url: string;
     clip: string;
+    qi1: string;
+    qi2: string;
+    qi3: string;
+    qi4: string;
+    qm1: string;
+    qm2: string;
+    qm3: string;
+    qa1: string;
+    qp1: string;
     username: string;
     password: string;
   }
@@ -30,6 +39,15 @@ export default function page() {
     name3: '',
     url: '',
     clip: '',
+    qi1: '',
+    qi2: '',
+    qi3: '',
+    qi4: '',
+    qm1: '',
+    qm2: '',
+    qm3: '',
+    qa1: '',
+    qp1: '',
     username: '',
     password: '',
   });
@@ -43,6 +61,15 @@ export default function page() {
     name3,
     url,
     clip,
+    qi1,
+    qi2,
+    qi3,
+    qi4,
+    qm1,
+    qm2,
+    qm3,
+    qa1,
+    qp1,
     username,
     password,
     email,
@@ -84,6 +111,15 @@ export default function page() {
         name3: '',
         url: '',
         clip: '',
+        qi1,
+        qi2,
+        qi3,
+        qi4,
+        qm1,
+        qm2,
+        qm3,
+        qa1,
+        qp1,
         username: '',
         password: '',
       });
@@ -114,6 +150,15 @@ export default function page() {
       name3 &&
       url &&
       clip &&
+      qi1 &&
+      qi2 &&
+      qi3 &&
+      qi4 &&
+      qm1 &&
+      qm2 &&
+      qm3 &&
+      qa1 &&
+      qp1 &&
       username &&
       password &&
       email &&
@@ -131,6 +176,15 @@ export default function page() {
     name3,
     url,
     clip,
+    qi1,
+    qi2,
+    qi3,
+    qi4,
+    qm1,
+    qm2,
+    qm3,
+    qa1,
+    qp1,
     username,
     password,
     email,
@@ -144,7 +198,7 @@ export default function page() {
       /^(?:https?:\/\/)?(?:drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=))([a-zA-Z0-9_-]{10,})/;
     const checkClip =
       /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const isUrl = checkUrl.test(url);
+    const isUrl = checkUrl.test(url) && checkUrl.test(qa1);
     const isClip = checkClip.test(clip);
     const upper = /[A-Z]/;
     const lower = /[a-z]/;
@@ -167,7 +221,7 @@ export default function page() {
     } else {
       setCanSend(true);
     }
-  }, [username, password, confirmPass, email, isFilled, clip, url, call]);
+  }, [username, password, confirmPass, email, isFilled, clip, url, call, qa1]);
 
   useEffect(() => {
     if (session) {
@@ -180,7 +234,7 @@ export default function page() {
       <h1 className="text-5xl font-bold text-white">สมัครเข้าร่วมค่าย</h1>
       <div className="bg-opacity-0 mt-10 mb-10 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-10 backdrop-blur-lg backdrop-filter lg:w-[40vw]">
         <form className="flex flex-col gap-5" onSubmit={sendData}>
-          <p className="text-3xl font-extrabold text-white">รายละเอียดทีม</p>
+          <p className="text-3xl font-extrabold text-white">-รายละเอียดทีม-</p>
           <p className="text-xl text-white">ชื่อนวัตกรรม</p>
           <input
             type="text"
@@ -211,7 +265,7 @@ export default function page() {
             onInput={inputValue('call')}
           ></input>
           <p className="mt-5 text-3xl font-extrabold text-white">
-            รายละเอียดผู้สมัคร
+            -รายละเอียดผู้สมัคร-
           </p>
           <div className="">
             <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 1</p>
@@ -268,7 +322,92 @@ export default function page() {
             onInput={inputValue('clip')}
           ></input>
           <p className="mt-5 text-3xl font-extrabold text-white">
-            สมัครบัญชีผู้ใช้
+            -คําถามเชิงนวัตกรรม-
+          </p>
+          <p className="text-xl text-white">อธิบายรายละเอียดนวัตกรรม</p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qi1')}
+          ></textarea>
+          <p className="text-xl text-white">นวัตกรรมนี้เกี่ยวกับ SDGs ยังไง</p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qi2')}
+          ></textarea>
+          <p className="text-xl text-white">
+            นวัตกรรมนี้เกี่ยวกับเครื่องคิดเลขอย่างไร
+          </p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qi3')}
+          ></textarea>
+          <p className="text-xl text-white">วัตถุประสงค์ของนวัตกรรมนี้</p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qi4')}
+          ></textarea>
+          <p className="mt-5 text-3xl font-extrabold text-white">
+            -คําถามเชิงวัดทัศนคติ-
+          </p>
+          <p className="text-xl text-white">
+            หากทีมของน้องได้รับการรับเลือกเข้ามาค่าย แต่ทีมของเพื่อนน้องไม่ติด
+            น้องจะแก้ปัญหาอย่างไรเพื่อ ไม่ให้เกิดปัญหาขึ้นในอนาคต
+          </p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qm1')}
+          ></textarea>
+          <p className="text-xl text-white">
+            หากทีมของน้องได้เข้าร่วมค่าย
+            และได้นําไอเดียนวัตกรรมของน้องมาแข่งกับคนอื่น
+            แต่น้องกลับไม่ติดอันดับเลย
+            ทีมของน้องจะมีวิธีจัดการอารมณ์ตัวเองอย่างไรบ้าง
+          </p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qm2')}
+          ></textarea>
+          <p className="text-xl text-white">
+            หากนวัตกรรมของน้องสามารถทําให้เกิดขึ้นจริงได้
+            น้องจะทําต่อให้เสร็จหรือเลิกทําแล้วทิ้งไอเดียตรงนั้นไปเลย
+          </p>
+          <textarea
+            className="h-20 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qm3')}
+          ></textarea>
+          <p className="mt-5 text-3xl font-extrabold text-white">
+            -คำถามวิชาการ-
+          </p>
+          <a href="/qa.pdf" target="blank">
+            <div className="">
+              <p className="text-xl font-bold text-cyan-400">
+                👆 Click เพื่อดูโจทย์
+              </p>
+              <p className="text-white">
+                (ให้น้องทำโจทย์ผ่านทาง Ipad/tablet หรือเขียนลงในกระดาษทั้ง 3 ข้อ
+                แล้วส่งเป็นลิงค์ Google Drive)
+              </p>
+            </div>
+          </a>
+          <input
+            type="text"
+            className="h-10 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qa1')}
+          ></input>
+          <p className="mt-5 text-3xl font-extrabold text-white">
+            -คำถามวัดการวางแผน-
+          </p>
+          <a href="/q.pdf" target="blank">
+            <p className="text-xl font-bold text-cyan-400">
+              👆 Click เพื่อดูโจทย์
+            </p>
+          </a>
+          <textarea
+            className="h-30 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('qp1')}
+          ></textarea>
+          <p className="mt-5 text-3xl font-extrabold text-white">
+            -สมัครบัญชีผู้ใช้-
           </p>
           <p className="text-xl text-white">ชื่อผู้ใช้</p>
           <input

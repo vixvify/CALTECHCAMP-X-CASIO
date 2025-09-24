@@ -184,7 +184,7 @@ export default function page() {
   }, [username, password, confirmPass, email, isFilled, clip, url, call]);
 
   useEffect(() => {
-    if (!session) {
+    if (!(session as any).user.admin) {
       router.push('/');
     }
   }, [session]);

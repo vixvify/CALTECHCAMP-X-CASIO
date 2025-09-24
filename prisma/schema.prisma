@@ -19,6 +19,15 @@ model User {
   name3 String 
   url String
   clip String
+  qi1 String
+  qi2 String
+  qi3 String
+  qi4 String
+  qm1 String
+  qm2 String
+  qm3 String
+  qa1 String
+  qp1 String
   username  String @unique
   password String? 
   stats String

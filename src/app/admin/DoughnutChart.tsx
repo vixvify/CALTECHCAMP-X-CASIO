@@ -17,7 +17,7 @@ export default function DoughnutChart({ labels, data }: DoughnutChartProps) {
       {
         label: 'My Dataset',
         data,
-        backgroundColor: ['red', 'green', 'blue'],
+        backgroundColor: ['orange', 'blue', 'green'],
         borderWidth: 1,
       },
     ],

@@ -4,11 +4,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import { useSession } from 'next-auth/react';
 
 export default function page() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const getData = async () => {
     try {
@@ -57,6 +59,12 @@ export default function page() {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    if (!(session as any).user.admin) {
+      router.push('/');
+    }
+  }, [session]);
 
   if (isLoading) {
     return (

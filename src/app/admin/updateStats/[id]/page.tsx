@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function page() {
   const [newstats, setStats] = useState('อยู่ระหว่างการคัดเลือก');
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const getStats = async () => {
     try {
@@ -48,6 +50,12 @@ export default function page() {
   useEffect(() => {
     getStats();
   }, []);
+
+  useEffect(() => {
+    if (!(session as any).user.admin) {
+      router.push('/');
+    }
+  }, [session]);
 
   if (isLoading) {
     return (
