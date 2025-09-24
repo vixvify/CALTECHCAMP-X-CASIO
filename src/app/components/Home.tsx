@@ -1,10 +1,11 @@
 'use client';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center lg:flex-row lg:items-start lg:gap-24 lg:pt-30">
       <div className="flex flex-col items-center justify-center gap-5 text-center md:items-start md:text-left">
-        <div className="mt-20 flex flex-col items-center justify-center gap-2 md:flex-row md:gap-3">
+        <div className="mt-30 flex flex-col items-center justify-center gap-2 md:flex-row md:gap-3">
           <h1 className="text-4xl font-bold text-white md:text-4xl lg:text-4xl">
             CALCTECH CAMP
           </h1>
@@ -25,6 +26,15 @@ export default function Home() {
           </span>
           พร้อมกิจกรรมและเวิร์กชอปสุดเข้มข้นตลอด 3 วัน 2 คืน
         </p>
+      </div>
+      <div className="">
+        <Image
+          className="shadow-[0px_4px_18px_22px_rgba(0,_0,_0,_0.1)]"
+          src={'/poster.png'}
+          width={300}
+          height={300}
+          alt="poster"
+        ></Image>
       </div>
     </div>
   );

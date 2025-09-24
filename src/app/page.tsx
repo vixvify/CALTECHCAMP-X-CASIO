@@ -21,7 +21,7 @@ export default function Page() {
     });
   }, []);
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center pt-15 pb-15">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-20 pt-15 pb-15">
       <section data-aos="fade-up" id="home">
         <Home />
       </section>
@@ -29,7 +29,9 @@ export default function Page() {
         <Qualifications />
       </section>
       <section className="w-[40vw]" id="timeline">
-        <h1 className="pb-20 text-left text-4xl font-bold text-white">กำหนดการ</h1>
+        <h1 className="pb-20 text-left text-4xl font-bold text-white">
+          กำหนดการ
+        </h1>
         <Timeline />
       </section>
       <section data-aos="fade-up" id="place">
