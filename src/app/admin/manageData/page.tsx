@@ -20,7 +20,10 @@ export default function page() {
       setData(res.data.data);
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+      });
     }
   };
 
@@ -52,7 +55,10 @@ export default function page() {
       });
       getData();
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+      });
     }
   };
 

@@ -48,7 +48,10 @@ export default function page() {
         });
       }
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+      });
     }
   };
 

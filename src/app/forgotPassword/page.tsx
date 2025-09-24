@@ -34,11 +34,9 @@ export default function page() {
       });
       router.push('/login');
     } catch (err: any) {
-      console.log(err);
-
       Swal.fire({
         icon: 'error',
-        title: err.response.data.msg,
+        title: 'ไม่พบอีเมล',
       });
     }
   };

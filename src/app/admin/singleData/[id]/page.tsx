@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 export default function page() {
   const { id } = useParams();
@@ -21,7 +22,10 @@ export default function page() {
       setData(res.data.data);
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+      });
     }
   };
 

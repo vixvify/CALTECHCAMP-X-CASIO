@@ -22,7 +22,10 @@ export default function page() {
 
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+      });
     }
   };
 

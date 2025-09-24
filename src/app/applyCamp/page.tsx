@@ -84,7 +84,7 @@ export default function page() {
     if (topic == 'call') {
       return (e: any) => setUser({ ...user, [topic]: String(e.target.value) });
     }
-    return (e: any) => setUser({ ...user, [topic]: e.target.value });
+    return (e: any) => setUser({ ...user, [topic]: e.target.value.trim() });
   };
 
   const sendData = async (e: any) => {
@@ -135,6 +135,8 @@ export default function page() {
           icon: 'error',
           title: 'สมัครไม่สำเร็จ โปรดตรวจสอบข้อมูลอีกครั้ง',
         });
+        console.log(err);
+
         setCanSend(true);
       }
     }

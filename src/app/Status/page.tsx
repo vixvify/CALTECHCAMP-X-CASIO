@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const timelineData = [
   {
@@ -37,7 +38,10 @@ export default function Timeline() {
         setStats(res.data.stats);
         setIsLoading(false);
       } catch (err) {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+        });
       }
     }
   };
