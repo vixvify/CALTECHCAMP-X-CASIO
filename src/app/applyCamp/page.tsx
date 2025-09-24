@@ -81,9 +81,6 @@ export default function page() {
   const [isFilled, setIsFilled] = useState(false);
 
   const inputValue = (topic: string) => {
-    if (topic == 'call') {
-      return (e: any) => setUser({ ...user, [topic]: String(e.target.value) });
-    }
     return (e: any) => setUser({ ...user, [topic]: e.target.value.trim() });
   };
 
@@ -135,7 +132,6 @@ export default function page() {
           icon: 'error',
           title: 'สมัครไม่สำเร็จ โปรดตรวจสอบข้อมูลอีกครั้ง',
         });
-        console.log(err);
 
         setCanSend(true);
       }
@@ -205,11 +201,13 @@ export default function page() {
     const upper = /[A-Z]/;
     const lower = /[a-z]/;
     const num = /[0-9]/;
+    const isCall = num.test(call);
     const hasUpper = upper.test(password);
     const hasLower = lower.test(password);
     const hasNum = num.test(password);
     if (
       !isFilled ||
+      !isCall ||
       !isEmail ||
       !hasUpper ||
       !hasLower ||
@@ -262,7 +260,7 @@ export default function page() {
           ></input>
           <p className="text-xl text-white">เบอร์โทร (หัวหน้าทีม)</p>
           <input
-            type="number"
+            type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('call')}
           ></input>

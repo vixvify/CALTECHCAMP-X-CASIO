@@ -165,12 +165,14 @@ export default function page() {
     const upper = /[A-Z]/;
     const lower = /[a-z]/;
     const num = /[0-9]/;
+    const isCall = num.test(call);
     const hasUpper = upper.test(password);
     const hasLower = lower.test(password);
     const hasNum = num.test(password);
     if (
       !isFilled ||
       !isEmail ||
+      !isCall ||
       !hasUpper ||
       !hasLower ||
       !hasNum ||
