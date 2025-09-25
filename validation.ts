@@ -9,12 +9,21 @@ export const userSchema = z.object({
     .string()
     .trim()
     .transform((val) => val.replace(/โรงเรียน/g, '')),
-  email: z.email(),
+  email: z
+    .string()
+    .email()
+    .transform((val) => val.toLowerCase()),
   name1: z.string().trim(),
   name2: z.string().trim(),
   name3: z.string().trim(),
-  url: z.string().refine((val) => driveRegex.test(val)),
-  clip: z.string().refine((val) => youtubeRegex.test(val)),
+  url: z
+    .string()
+    .url()
+    .refine((val) => driveRegex.test(val)),
+  clip: z
+    .string()
+    .url()
+    .refine((val) => youtubeRegex.test(val)),
   username: z.string().trim(),
   password: z
     .string()
