@@ -196,14 +196,14 @@ export default function page() {
   if (isLoading) {
     return (
       <div className="flex h-[100vh] items-center justify-center">
-        <h1 className="text-5xl text-white">กำลังโหลดข้อมูล...</h1>;
+        <h1 className="text-3xl text-white lg:text-5xl">กำลังโหลดข้อมูล...</h1>;
       </div>
     );
   } else {
     return (
       <div className="flex flex-col items-center justify-center pt-35">
         <h1 className="text-5xl font-bold text-white">แก้ไขข้อมูล</h1>
-        <div className="bg-opacity-0 mt-10 mb-10 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-10 backdrop-blur-lg backdrop-filter lg:w-[40vw]">
+        <div className="bg-opacity-0 mt-10 mr-5 mb-10 ml-5 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-10 backdrop-blur-lg backdrop-filter lg:mr-0 lg:ml-0 lg:w-[40vw]">
           <form className="flex flex-col gap-5" onSubmit={sendData}>
             <p className="text-3xl font-extrabold text-white">รายละเอียดทีม</p>
             <p className="text-xl text-white">ชื่อนวัตกรรม</p>

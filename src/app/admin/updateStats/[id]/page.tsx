@@ -55,7 +55,7 @@ export default function page() {
   }, []);
 
   useEffect(() => {
-    if (!(session as any).user.admin) {
+    if (!(session as any)?.user?.admin) {
       router.push('/');
     }
   }, [session]);
@@ -63,17 +63,19 @@ export default function page() {
   if (isLoading) {
     return (
       <div className="flex h-[100vh] items-center justify-center">
-        <h1 className="text-5xl text-white">กำลังโหลดข้อมูล...</h1>;
+        <h1 className="text-3xl text-white lg:text-5xl">กำลังโหลดข้อมูล...</h1>;
       </div>
     );
   } else {
     return (
       <div className="flex h-[100vh] flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-10">
-          <h1 className="text-5xl text-white">อัพเดตสถานะผู้สมัคร</h1>
+          <h1 className="text-center text-3xl text-white lg:text-5xl">
+            อัพเดตสถานะผู้สมัคร
+          </h1>
           <select
             value={newstats}
-            className="flex items-center justify-center bg-white p-3 text-2xl"
+            className="flex items-center justify-center bg-white p-3 text-xl lg:text-2xl"
             onChange={(e) => setStats(e.target.value)}
           >
             <option>อยู่ระหว่างการคัดเลือก</option>
