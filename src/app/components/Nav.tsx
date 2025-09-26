@@ -71,7 +71,7 @@ export default function Nav() {
                 width={150}
                 height={150}
                 alt="logo"
-                className="h-0 w-0 lg:h-[60px] lg:w-[60px]"
+                className="pt-2 h-20 w-20 lg:h-[60px] lg:w-[60px]"
               ></Image>
             </li>
           </a>
