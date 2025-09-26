@@ -82,8 +82,8 @@ export default function page() {
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
-      <h1 className="text-5xl font-bold text-white">เข้าสู่ระบบ</h1>
-      <div className="bg-opacity-0 mt-10 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-10 backdrop-blur-lg backdrop-filter">
+      <h1 className="text-5xl font-bold text-white sm:text-5xl lg:text-5xl">เข้าสู่ระบบ</h1>
+      <div className="mb-4 mr-15 ml-15 mt-10 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-6 backdrop-blur-lg backdrop-filter">
         <form className="flex flex-col gap-5" onSubmit={sendData}>
           <p className="text-xl text-white">ชื่อผู้ใช้</p>
           <input

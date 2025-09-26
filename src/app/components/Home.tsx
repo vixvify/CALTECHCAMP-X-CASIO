@@ -27,9 +27,9 @@ export default function Home() {
           พร้อมกิจกรรมและเวิร์กชอปสุดเข้มข้นตลอด 3 วัน 2 คืน
         </p>
       </div>
-      <div className="">
+      <div>
         <Image
-          className="shadow-[0px_4px_18px_22px_rgba(0,_0,_0,_0.1)]"
+          className="shadow-[0px_4px_18px_22px_rgba(0,_0,_0,_0.1)] hidden sm:hidden lg:block"
           src={'/poster.png'}
           width={300}
           height={300}
