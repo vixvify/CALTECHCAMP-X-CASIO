@@ -71,7 +71,7 @@ export default function Nav() {
                 width={150}
                 height={150}
                 alt="logo"
-                className="pt-2 h-20 w-20 lg:h-[60px] lg:w-[60px]"
+                className="h-20 w-20 pt-2 lg:h-[60px] lg:w-[60px]"
               ></Image>
             </li>
           </a>
@@ -108,7 +108,7 @@ export default function Nav() {
           )}
           {isLogin && (
             <Link href={'/Status'}>
-              <li className="rounded-2xl bg-white p-3 text-[#101557]">
+              <li className="rounded-2xl text-center text-sm text-white lg:bg-white lg:p-3 lg:text-xl lg:text-[#101557]">
                 ติดตามสถานะการสมัคร
               </li>
             </Link>

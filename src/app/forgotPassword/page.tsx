@@ -61,30 +61,30 @@ export default function page() {
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
-      <h1 className="text-5xl font-bold text-white">ลืมรหัสผ่าน</h1>
-      <div className="mb-4 mr-15 ml-15 mt-10 bg-opacity-0 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter">
+      <h1 className="text-4xl font-bold text-white lg:text-5xl">ลืมรหัสผ่าน</h1>
+      <div className="bg-opacity-0 mt-10 mr-15 mb-4 ml-15 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-6 backdrop-blur-lg backdrop-filter">
         <form className="flex flex-col gap-5" onSubmit={sendData}>
           <p className="text-xl text-white">อีเมลของคุณ</p>
           <input
             type="text"
-            className="h-10 w-100 rounded-md border-2 border-white text-white"
+            className="h-10 w-70 rounded-md border-2 border-white text-white lg:w-100"
             onInput={inputValue('email')}
           ></input>
           <p className="text-xl text-white">รหัสผ่าน</p>
           <input
             type="password"
-            className="h-10 w-100 rounded-md border-2 border-white text-white"
+            className="h-10 w-70 rounded-md border-2 border-white text-white lg:w-100"
             onInput={inputValue('password')}
           ></input>
           <p className="text-xl text-white">ยืนยันรหัสผ่าน</p>
           <input
             type="password"
-            className="h-10 w-100 rounded-md border-2 border-white text-white"
+            className="text-whit5 h-10 w-70 rounded-md border-2 border-white lg:w-100"
             onInput={(e: any) => setConfirmPass(e.target.value)}
           ></input>
           <button
             type="submit"
-            className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black disabled:opacity-50"
+            className="mt-5 h-12 cursor-pointer rounded-xl border-2 border-white bg-white text-xl text-black disabled:opacity-50"
             disabled={!canSend}
           >
             รีเซ็ตรหัสผ่าน
