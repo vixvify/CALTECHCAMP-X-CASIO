@@ -83,8 +83,8 @@ export default function Timeline() {
     );
   } else {
     return (
-      <div className="relative left-100 flex h-[100vh] flex-col items-start justify-center pt-25">
-        <h1 className="mb-20 text-4xl text-white">ติดตามสถานะการสมัคร</h1>
+      <div className="relative mx-auto flex h-auto min-h-[100vh] w-full max-w-md flex-col items-start justify-center px-4 pt-10 sm:px-6 md:px-10 lg:pt-30">
+        <h1 className="mb-15 text-4xl font-bold text-white">ติดตามสถานะการสมัคร</h1>
         <div className="flex flex-col gap-[60px]">
           {timelineData.map((item, index) => (
             <motion.div

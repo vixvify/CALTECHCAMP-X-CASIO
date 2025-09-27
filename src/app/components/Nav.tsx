@@ -55,12 +55,12 @@ export default function Nav() {
     <div>
       <nav className="relative z-999">
         <GiHamburgerMenu
-          className="relative top-10 left-5 z-50 h-5 w-5 lg:hidden"
+          className="fixed top-5 left-5 z-50 h-5 w-5 lg:hidden"
           style={{ color: 'white' }}
           onClick={() => isOpen(!open)}
         />
         <ul
-          className={`absolute top-0 left-0 flex transform flex-col items-center gap-10 bg-transparent pt-15 backdrop-blur-xl lg:fixed lg:w-[100vw] lg:flex-row lg:justify-center lg:gap-15 lg:pt-0 ${
+          className={`fixed top-0 left-0 flex transform flex-col items-center gap-10 bg-transparent pt-15 backdrop-blur-xl lg:fixed lg:w-[100vw] lg:flex-row lg:justify-center lg:gap-15 lg:pt-0 ${
             open ? 'translate-x-0' : '-translate-x-full'
           } h-[100vh] w-[35vw] transition-transform duration-500 ease-in-out lg:left-[50%] lg:h-[100px] lg:w-[50%] lg:-translate-x-1/2 lg:transform lg:text-xl lg:text-white lg:transition-none`}
         >
