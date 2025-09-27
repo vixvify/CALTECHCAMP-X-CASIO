@@ -75,13 +75,13 @@ export default function Nav() {
               ></Image>
             </li>
           </a>
-          <a href={'#qualification'}>
+          <a href={'/#qualification'}>
             <li className="text-white">คุณสมบัติ</li>
           </a>
-          <a href={'#timeline'}>
+          <a href={'/#timeline'}>
             <li className="text-white">กำหนดการ</li>
           </a>
-          <a href={'#place'}>
+          <a href={'/#place'}>
             <li className="text-white">สถานที่</li>
           </a>
           {isAdmin && (
