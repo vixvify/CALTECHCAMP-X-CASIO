@@ -23,32 +23,32 @@ const timelineData = [
 ];
 
 export default function Timeline() {
-  const { data: session } = useSession();
-  const router = useRouter();
-  const [stats, setStats] = useState('in_progress');
+  // const { data: session } = useSession();
+  // const router = useRouter();
+  const [stats, setStats] = useState('อยู่ระหว่างการคัดเลือก');
   const [statsIndex, setStatsIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const getStats = async () => {
-    if ((session as any)?.user?.id) {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
-        );
-        setStats(res.data.stats);
-        setIsLoading(false);
-      } catch (err) {
-        Swal.fire({
-          icon: 'error',
-          title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
-        });
-      }
-    }
-  };
+  // const getStats = async () => {
+  //   if ((session as any)?.user?.id) {
+  //     try {
+  //       const res = await axios.get(
+  //         `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
+  //       );
+  //       setStats(res.data.stats);
+  //       setIsLoading(false);
+  //     } catch (err) {
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+  //       });
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    getStats();
-  }, []);
+  // useEffect(() => {
+  //   getStats();
+  // }, []);
 
   useEffect(() => {
     if (stats == 'อยู่ระหว่างการคัดเลือก') {
@@ -69,11 +69,11 @@ export default function Timeline() {
     }
   }, [stats]);
 
-  useEffect(() => {
-    if (!session) {
-      router.push('/');
-    }
-  }, [session]);
+  // useEffect(() => {
+  //   if (!session) {
+  //     router.push('/');
+  //   }
+  // }, [session]);
 
   if (isLoading) {
     return (
