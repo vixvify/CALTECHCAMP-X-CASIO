@@ -78,7 +78,7 @@ export default function Timeline() {
   if (isLoading) {
     return (
       <div className="flex h-[100vh] items-center justify-center">
-        <h1 className="text-3xl text-white lg:text-5xl">กำลังโหลดข้อมูล...</h1>;
+        <h1 className="text-3xl text-white lg:text-5xl">กำลังโหลดข้อมูล...</h1>
       </div>
     );
   } else {

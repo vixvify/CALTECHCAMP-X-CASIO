@@ -260,7 +260,7 @@ export default function page() {
   return (
     <div className="flex flex-col items-center justify-center pt-35">
       <h1 className="text-5xl font-bold text-white">สมัครเข้าร่วมค่าย</h1>
-      <div className="mb-4 mt-10 rounded-2xl border border-gray-100 bg-gray-400/20 
+      <div className="mt-10 mr-15 mb-4 ml-15 rounded-2xl border border-gray-100 bg-gray-400/20 
                 bg-clip-padding p-4 sm:p-6 md:p-8 lg:p-10 
                 backdrop-blur-lg backdrop-filter 
                 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[40vw]">
