@@ -23,32 +23,32 @@ const timelineData = [
 ];
 
 export default function Timeline() {
-  // const { data: session } = useSession();
-  // const router = useRouter();
+  const { data: session } = useSession();
+  const router = useRouter();
   const [stats, setStats] = useState('อยู่ระหว่างการคัดเลือก');
   const [statsIndex, setStatsIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // const getStats = async () => {
-  //   if ((session as any)?.user?.id) {
-  //     try {
-  //       const res = await axios.get(
-  //         `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
-  //       );
-  //       setStats(res.data.stats);
-  //       setIsLoading(false);
-  //     } catch (err) {
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
-  //       });
-  //     }
-  //   }
-  // };
+  const getStats = async () => {
+    if ((session as any)?.user?.id) {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
+        );
+        setStats(res.data.stats);
+        setIsLoading(false);
+      } catch (err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง',
+        });
+      }
+    }
+  };
 
-  // useEffect(() => {
-  //   getStats();
-  // }, []);
+  useEffect(() => {
+    getStats();
+  }, []);
 
   useEffect(() => {
     if (stats == 'อยู่ระหว่างการคัดเลือก') {
@@ -69,11 +69,11 @@ export default function Timeline() {
     }
   }, [stats]);
 
-  // useEffect(() => {
-  //   if (!session) {
-  //     router.push('/');
-  //   }
-  // }, [session]);
+  useEffect(() => {
+    if (!session) {
+      router.push('/');
+    }
+  }, [session]);
 
   if (isLoading) {
     return (
@@ -84,7 +84,9 @@ export default function Timeline() {
   } else {
     return (
       <div className="relative mx-auto flex h-auto min-h-[100vh] w-full max-w-md flex-col items-start justify-center px-4 pt-10 sm:px-6 md:px-10 lg:pt-30">
-        <h1 className="mb-15 text-4xl font-bold text-white">ติดตามสถานะการสมัคร</h1>
+        <h1 className="mb-15 text-3xl font-bold text-white lg:text-4xl">
+          ติดตามสถานะการสมัคร
+        </h1>
         <div className="flex flex-col gap-[60px]">
           {timelineData.map((item, index) => (
             <motion.div
