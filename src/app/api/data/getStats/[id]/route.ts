@@ -1,15 +1,14 @@
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/generated/prisma';
+import { prisma } from '@/lib/prisma';
 import { getToken } from 'next-auth/jwt';
 
 export async function GET(req: NextRequest, { params }: any) {
   const { id } = params;
-  const prisma = new PrismaClient();
   const token = await getToken({ req });
 
   if (!token) {
-    return null;
+    return NextResponse.json({ msg: 'not found' }, { status: 404 });
   }
 
   try {

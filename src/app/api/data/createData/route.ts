@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/dist/server/web/spec-extension/response';
 import { NextRequest } from 'next/dist/server/web/spec-extension/request';
-import { PrismaClient } from '@/generated/prisma';
+import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
 import { getToken } from 'next-auth/jwt';
 import { userSchema } from '../../../../../validation';
 
 export async function POST(req: NextRequest) {
-  const prisma = new PrismaClient();
   const data = await req.json();
   const token = await getToken({ req });
   const parsed = userSchema.safeParse(data);

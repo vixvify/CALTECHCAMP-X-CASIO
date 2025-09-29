@@ -1,21 +1,28 @@
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/generated/prisma';
+import { prisma } from '@/lib/prisma';
 import { getToken } from 'next-auth/jwt';
 
+type Data = {
+  username: string;
+  id: string;
+  team: string;
+  email: string;
+  stats: string;
+};
+
 export async function GET(req: NextRequest) {
-  const prisma = new PrismaClient();
   const token = await getToken({ req });
 
   if (!token) {
-    return null;
+    return NextResponse.json({ msg: 'not found' }, { status: 404 });
   }
 
   try {
     const res = await prisma.user.findMany({});
     const newRes = res
-      .filter((e) => e.username !== 'adminteam')
-      .map((e) => {
+      .filter((e: Data) => e.username !== 'adminteam')
+      .map((e: Data) => {
         return {
           id: e.id,
           idea: e.team,

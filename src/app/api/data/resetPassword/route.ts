@@ -1,10 +1,9 @@
 import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/generated/prisma';
+import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
 
 export async function PATCH(req: NextRequest) {
-  const prisma = new PrismaClient();
   const data = await req.json();
 
   try {

@@ -6,11 +6,8 @@ const WINDOW = 60 * 1000;
 
 const ipRequests: Record<string, { count: number; last: number }> = {};
 
-export function middleware(req: NextRequest) {
-  const ip =
-    (req as any).ip ||
-    req.headers.get('x-forwarded-for')?.split(',')[0] ||
-    'unknown';
+export async function middleware(req: NextRequest) {
+  const { ip } = await req.json();
 
   const now = Date.now();
 

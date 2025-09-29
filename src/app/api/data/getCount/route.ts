@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/generated/prisma';
+import { prisma } from '@/lib/prisma';
 
 export async function GET() {
-  const prisma = new PrismaClient();
-
   try {
     const total = await prisma.user.count({
       where: {

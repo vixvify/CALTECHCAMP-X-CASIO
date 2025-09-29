@@ -12,7 +12,11 @@ const kanit = Kanit({
   variable: '--font-kanit',
 });
 
-export default function RootLayout({ children }: any) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${kanit.variable}`}>
