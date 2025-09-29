@@ -14,9 +14,7 @@ export default function page() {
 
   const getData = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/getData`,
-      );
+      const res = await axios.get(`/api/data/getData`);
       setData(res.data.data);
       setIsLoading(false);
     } catch (err) {
@@ -45,9 +43,7 @@ export default function page() {
 
   const removeData = async (id: string) => {
     try {
-      await axios.delete(
-        `${process.env.NEXT_PUBLIC_API}/data/removeData/${id}`,
-      );
+      await axios.delete(`/api/data/removeData/${id}`);
       Swal.fire({
         title: 'ลบข้อมูลสำเร็จ',
         icon: 'success',

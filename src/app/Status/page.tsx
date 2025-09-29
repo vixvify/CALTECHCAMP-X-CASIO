@@ -33,7 +33,7 @@ export default function Timeline() {
     if ((session as any)?.user?.id) {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API}/data/getStats/${(session as any)?.user?.id}`,
+          `/api/data/getStats/${(session as any)?.user?.id}`,
         );
         setStats(res.data.stats);
         setIsLoading(false);

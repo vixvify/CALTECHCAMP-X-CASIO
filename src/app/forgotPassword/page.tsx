@@ -23,10 +23,7 @@ export default function page() {
     e.preventDefault();
     Swal.fire('กำลังรีเซ็ตรหัสผ่าน');
     try {
-      await axios.patch(
-        `${process.env.NEXT_PUBLIC_API}/data/resetPassword`,
-        user,
-      );
+      await axios.patch(`/api/data/resetPassword`, user);
       Swal.fire({
         title: 'รีเซ็ตรหัสผ่านสำเร็จ',
         icon: 'success',

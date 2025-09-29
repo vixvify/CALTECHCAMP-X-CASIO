@@ -16,9 +16,7 @@ export default function page() {
 
   const getData = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/getCount`,
-      );
+      const res = await axios.get(`/api/data/getCount`);
       setData(res.data);
 
       setIsLoading(false);

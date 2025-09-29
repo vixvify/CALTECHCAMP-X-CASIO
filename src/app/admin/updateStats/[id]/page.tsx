@@ -15,9 +15,7 @@ export default function page() {
 
   const getStats = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/getStats/${id}`,
-      );
+      const res = await axios.get(`/api/data/getStats/${id}`);
       setStats(res.data.stats);
 
       setIsLoading(false);
@@ -32,10 +30,7 @@ export default function page() {
   const updateStats = async () => {
     Swal.fire('กำลังแก้ไขสถานะ');
     try {
-      await axios.patch(
-        `${process.env.NEXT_PUBLIC_API}/data/updateStats/${id}`,
-        { stats: newstats },
-      );
+      await axios.patch(`/api/data/updateStats/${id}`, { stats: newstats });
       Swal.fire({
         title: 'แก้ไขสำเร็จ',
         icon: 'success',

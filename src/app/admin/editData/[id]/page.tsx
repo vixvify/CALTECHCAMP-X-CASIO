@@ -65,9 +65,7 @@ export default function page() {
 
   const getData = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/singleData/${id}`,
-      );
+      const res = await axios.get(`/api/data/singleData/${id}`);
       setUser(res.data.data);
       setIsLoading(false);
     } catch (err) {
@@ -85,10 +83,7 @@ export default function page() {
     });
     setCanSend(false);
     try {
-      await axios.put(
-        `${process.env.NEXT_PUBLIC_API}/data/editData/${id}`,
-        user,
-      );
+      await axios.put(`api//data/editData/${id}`, user);
       Swal.fire({
         title: 'แก้ไขข้อมูลสำเร็จ',
         icon: 'success',

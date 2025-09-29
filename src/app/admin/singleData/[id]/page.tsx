@@ -16,9 +16,7 @@ export default function page() {
 
   const getSingle = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/data/singleData/${id}`,
-      );
+      const res = await axios.get(`/api/data/singleData/${id}`);
       setData(res.data.data);
       setIsLoading(false);
     } catch (err) {
