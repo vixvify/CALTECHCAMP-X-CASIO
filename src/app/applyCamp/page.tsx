@@ -259,7 +259,9 @@ export default function page() {
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
-      <h1 className="text-5xl font-bold text-white">สมัครเข้าร่วมค่าย</h1>
+      <h1 className="text-4xl font-bold text-white lg:text-5xl">
+        สมัครเข้าร่วมค่าย
+      </h1>
       <div className="mt-10 mr-15 mb-4 ml-15 w-[90%] rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter sm:w-[80%] sm:p-6 md:w-[70%] md:p-8 lg:w-[40vw] lg:p-10">
         <form className="flex flex-col gap-5" onSubmit={sendData}>
           <p className="text-3xl font-extrabold text-white">-รายละเอียดทีม-</p>
@@ -324,7 +326,7 @@ export default function page() {
           </p>
           <div className="">
             <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 1</p>
-            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
           </div>
           <input
             type="text"
@@ -333,7 +335,7 @@ export default function page() {
           ></input>
           <div className="">
             <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 2</p>
-            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
           </div>
           <input
             type="text"
@@ -342,7 +344,7 @@ export default function page() {
           ></input>
           <div className="">
             <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 3</p>
-            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น ก้อง รักสยาม)</p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
           </div>
           <input
             type="text"
@@ -375,10 +377,17 @@ export default function page() {
           )}
           <div className="">
             <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
-            <p className="text-white">
-              ความยาวไม่เกิน 5 นาที เผยแพร่ผ่านช่องทาง Youtube โดยเปิดเป็น
-              Unlisted{' '}
-            </p>
+            <a href="/qa.pdf" target="blank">
+              <div className="">
+                <p className="text-xl font-bold text-cyan-400">
+                  👆 Click เพื่อดูรายละเอียดของคลิปวิดิโอ
+                </p>
+                <p className="text-white">
+                  (ความยาวไม่เกิน 5 นาที เผยแพร่ผ่านช่องทาง Youtube โดยเปิดเป็น
+                  Unlisted)
+                </p>
+              </div>
+            </a>
           </div>
           <input
             type="text"

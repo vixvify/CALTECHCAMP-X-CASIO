@@ -25,11 +25,20 @@ export default function Home() {
             เรียนรู้คณิตศาสตร์กับเครื่องคิดเลขวิทยาศาสตร์
           </span>
           พร้อมกิจกรรมและเวิร์กชอปสุดเข้มข้นตลอด 3 วัน 2 คืน
+          <p className="mt-10">
+            <a
+              href="detail.pdf"
+              target="blank"
+              className="rounded-2xl bg-white p-2 text-sm font-bold text-[#101557] lg:p-3 lg:text-xl"
+            >
+              อ่านรายละเอียดการรับสมัครได้ที่นี่ 👆
+            </a>
+          </p>
         </p>
       </div>
       <div>
         <Image
-          className="shadow-[0px_4px_18px_22px_rgba(0,_0,_0,_0.1)] hidden sm:hidden lg:block"
+          className="hidden shadow-[0px_4px_18px_22px_rgba(0,_0,_0,_0.1)] sm:hidden lg:block"
           src={'/poster.png'}
           width={300}
           height={300}
