@@ -377,7 +377,7 @@ export default function page() {
           )}
           <div className="">
             <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
-            <a href="/qa.pdf" target="blank">
+            <a href="clipdetail.pdf" target="blank">
               <div className="">
                 <p className="text-xl font-bold text-cyan-400">
                   👆 Click เพื่อดูรายละเอียดของคลิปวิดิโอ
