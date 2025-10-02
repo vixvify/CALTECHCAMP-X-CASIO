@@ -99,13 +99,13 @@ export default function Nav() {
               ออกจากระบบ
             </li>
           )}
-          {!isLogin && (
+          {/* {!isLogin && (
             <Link href={'/applyCamp'}>
               <li className="rounded-2xl bg-white p-3 text-[#101557]">
                 สมัครค่าย
               </li>
             </Link>
-          )}
+          )} */}
           {isLogin && (
             <Link href={'/Status'}>
               <li className="rounded-2xl text-center text-sm text-white lg:bg-white lg:p-3 lg:text-xl lg:text-[#101557]">

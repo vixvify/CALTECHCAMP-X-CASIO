@@ -21,10 +21,14 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { password, email } = data;
+    const { username, password, email } = data;
     const isRegis = await prisma.user.findUnique({ where: { email } });
+    const isAlredyName = await prisma.user.findUnique({ where: { username } });
     if (isRegis) {
       return NextResponse.json({ msg: 'isRegis' }, { status: 400 });
+    }
+    if (isAlredyName) {
+      return NextResponse.json({ msg: 'isAlredyName' }, { status: 409 });
     }
     const newPass = await bcrypt.hash(password, 10);
     const newData = {

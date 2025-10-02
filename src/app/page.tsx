@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Qualifications from './components/qualificatioins';
 import Timeline from './components/timeline';
 import Place from './components/place';
+import Footer from './components/Footer';
 
 export default function Page() {
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function Page() {
     });
   }, []);
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-20 pt-15 pb-15">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-20 pt-15">
       <section data-aos="fade-up" id="home">
         <Home />
       </section>
@@ -37,6 +38,7 @@ export default function Page() {
       <section data-aos="fade-up" id="place">
         <Place />
       </section>
+      <Footer />
     </div>
   );
 }

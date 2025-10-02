@@ -83,6 +83,8 @@ export default function page() {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [isEmail, setIsEmail] = useState(undefined as any);
   const [isSchool, setIsSchool] = useState(undefined as any);
+  const checkFolder =
+    /https:\/\/drive\.google\.com\/drive\/folders\/([a-zA-Z0-9_-]+)/;
   const checkUrl =
     /^(?:https?:\/\/)?(?:drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=))([a-zA-Z0-9_-]{10,})/;
   const checkClip =
@@ -101,8 +103,25 @@ export default function page() {
     return (e: any) => setUser({ ...user, [topic]: e.target.value.trim() });
   };
 
-  const sendData = async (e: any) => {
+  const confirmSend = async (e: any) => {
     e.preventDefault();
+    Swal.fire({
+      title: 'กรุณายืนยันความถูกต้องของข้อมูล',
+      text: 'เมื่อทำการสมัครแล้วจะไม่สามารถแก้ไขข้อมูลได้',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'สมัครค่าย',
+      cancelButtonText: 'ยกเลิก',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sendData();
+      }
+    });
+  };
+
+  const sendData = async () => {
     Swal.fire({
       title: 'กำลังดำเนินการ',
     });
@@ -143,6 +162,11 @@ export default function page() {
         Swal.fire({
           icon: 'error',
           title: 'คุณได้สมัครค่ายนี้แล้ว',
+        });
+      } else if (err.response.data.msg == 'isAlredyName') {
+        Swal.fire({
+          icon: 'error',
+          title: 'ชื่อผู้ใช้ซ้ำ กรุณาลองใหม่',
         });
       } else {
         Swal.fire({
@@ -209,7 +233,7 @@ export default function page() {
   useEffect(() => {
     setIsEmail(email === '' ? undefined : regex.test(email));
     setIsSchool(school === '' ? undefined : !school.includes('โรงเรียน'));
-    setisUrl1(url === '' ? undefined : checkUrl.test(url));
+    setisUrl1(url === '' ? undefined : checkFolder.test(url));
     setisUrl2(qa1 === '' ? undefined : checkUrl.test(qa1));
     setisClip(clip === '' ? undefined : checkClip.test(clip));
     setisCall(call === '' ? undefined : num.test(call));
@@ -257,13 +281,17 @@ export default function page() {
     }
   }, [session]);
 
+  useEffect(() => {
+    router.push('/');
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center pt-35">
       <h1 className="text-4xl font-bold text-white lg:text-5xl">
         สมัครเข้าร่วมค่าย
       </h1>
       <div className="mt-10 mr-15 mb-4 ml-15 w-[90%] rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter sm:w-[80%] sm:p-6 md:w-[70%] md:p-8 lg:w-[40vw] lg:p-10">
-        <form className="flex flex-col gap-5" onSubmit={sendData}>
+        <form className="flex flex-col gap-5" onSubmit={confirmSend}>
           <p className="text-3xl font-extrabold text-white">-รายละเอียดทีม-</p>
           <p className="text-xl text-white">ชื่อนวัตกรรม</p>
           <input
@@ -354,7 +382,8 @@ export default function page() {
           <div className="">
             <p className="text-xl text-white">ลิงค์ Google Drive</p>
             <p className="text-white">
-              (ประกอบด้วย ไฟล์ ปพ.1 หรือ ปพ.7 หรือ บัตรนักเรียน ของสมาชิกทุกคน)
+              (โฟลเดอร์ Google Drive ประกอบด้วย ไฟล์ ปพ.1 หรือ ปพ.7 หรือ
+              บัตรนักเรียน ของสมาชิกทุกคน)
             </p>
             <p className="text-white">
               ตั้งชื่อดังนี้ "ชื่อเอกสาร-ลำดับของสมาชิก" เช่น "ปพ.1-1"

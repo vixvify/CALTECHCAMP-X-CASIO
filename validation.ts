@@ -2,6 +2,8 @@ import { z } from 'zod';
 
 const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
 const driveRegex = /^(https?:\/\/)?(drive\.google\.com)\/.+$/;
+const folderRegex =
+  /https:\/\/drive\.google\.com\/drive\/folders\/([a-zA-Z0-9_-]+)/;
 
 export const userSchema = z.object({
   team: z.string().trim(),
@@ -19,12 +21,16 @@ export const userSchema = z.object({
   url: z
     .string()
     .url()
-    .refine((val) => driveRegex.test(val)),
+    .refine((val) => folderRegex.test(val)),
   clip: z
     .string()
     .url()
     .refine((val) => youtubeRegex.test(val)),
   username: z.string().trim(),
+  qa1: z
+    .string()
+    .url()
+    .refine((val) => driveRegex.test(val)),
   password: z
     .string()
     .refine((val) => /[a-z]/.test(val))
