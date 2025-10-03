@@ -1,4 +1,6 @@
-## CALCTECH CAMP X CASIO WEBSITE (Work In Progress)
+## CALCTECH CAMP X CASIO WEBSITE 
+
+You can see this website https://www.calctechcamp.com/
 
 Tech Stack
 
