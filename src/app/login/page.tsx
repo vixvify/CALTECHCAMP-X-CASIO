@@ -25,7 +25,14 @@ export default function page() {
 
   const sendData = async (e: any) => {
     e.preventDefault();
-    Swal.fire('กำลังเข้าสู่ระบบ');
+    Swal.fire({
+      title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+    });
     try {
       const res = await signIn('credentials', {
         username,

@@ -42,6 +42,14 @@ export default function page() {
   };
 
   const removeData = async (id: string) => {
+    Swal.fire({
+      title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+    });
     try {
       await axios.delete(`/api/data/removeData/${id}`);
       Swal.fire({

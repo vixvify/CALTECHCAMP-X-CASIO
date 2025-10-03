@@ -80,6 +80,11 @@ export default function page() {
     e.preventDefault();
     Swal.fire({
       title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
     });
     setCanSend(false);
     try {

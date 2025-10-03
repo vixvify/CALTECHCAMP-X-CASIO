@@ -12,19 +12,18 @@ model User {
   team String  @unique
   school String
   email String @unique
-  call String
+  call1 String
+  call2 String
+  relation String
   name1 String 
   name2 String 
   name3 String 
+  name4 String 
   url String
   clip String
   qi1 String
-  qi2 String
-  qi3 String
-  qi4 String
   qm1 String
   qm2 String
-  qm3 String
   qa1 String
   qp1 String
   username  String @unique

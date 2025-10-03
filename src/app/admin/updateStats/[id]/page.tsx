@@ -28,7 +28,14 @@ export default function page() {
   };
 
   const updateStats = async () => {
-    Swal.fire('กำลังแก้ไขสถานะ');
+    Swal.fire({
+      title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+    });
     try {
       await axios.patch(`/api/data/updateStats/${id}`, { stats: newstats });
       Swal.fire({

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+const num = /[0-9]/;
 const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
 const driveRegex = /^(https?:\/\/)?(drive\.google\.com)\/.+$/;
 const folderRegex =
@@ -15,9 +16,18 @@ export const userSchema = z.object({
     .string()
     .email()
     .transform((val) => val.toLowerCase()),
+  call1: z
+    .string()
+    .trim()
+    .refine((val) => num.test(val)),
+  call2: z
+    .string()
+    .trim()
+    .refine((val) => num.test(val)),
   name1: z.string().trim(),
   name2: z.string().trim(),
   name3: z.string().trim(),
+  name4: z.string().trim(),
   url: z
     .string()
     .url()
@@ -27,6 +37,10 @@ export const userSchema = z.object({
     .url()
     .refine((val) => youtubeRegex.test(val)),
   username: z.string().trim(),
+  qi1: z
+    .string()
+    .url()
+    .refine((val) => driveRegex.test(val)),
   qa1: z
     .string()
     .url()

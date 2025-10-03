@@ -21,7 +21,14 @@ export default function page() {
 
   const sendData = async (e: any) => {
     e.preventDefault();
-    Swal.fire('กำลังรีเซ็ตรหัสผ่าน');
+    Swal.fire({
+      title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+    });
     try {
       await axios.patch(`/api/data/resetPassword`, user);
       Swal.fire({
