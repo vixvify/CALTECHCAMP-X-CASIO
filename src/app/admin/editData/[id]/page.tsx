@@ -640,6 +640,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('password')}
+              value={password}
             ></input>
             {isPass != undefined && !isPass && (
               <p className="text-red-500">ระบุรหัสผ่านให้ถูกต้อง</p>
@@ -655,6 +656,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={(e: any) => setConfirmPass(e.target.value)}
+              value={password}
             ></input>
             {isMatch != undefined && !isMatch && (
               <p className="text-red-500">รหัสผ่านไม่ตรงกัน</p>
