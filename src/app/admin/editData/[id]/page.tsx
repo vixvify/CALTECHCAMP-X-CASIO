@@ -129,7 +129,7 @@ export default function page() {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'สมัครค่าย',
+      confirmButtonText: 'อัพเดตข้อมูล',
       cancelButtonText: 'ยกเลิก',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -149,7 +149,7 @@ export default function page() {
     });
     setCanSend(false);
     try {
-      await axios.put(`api//data/editData/${id}`, user);
+      await axios.put(`/api/data/editData/${id}`, user);
       Swal.fire({
         title: 'แก้ไขข้อมูลสำเร็จ',
         icon: 'success',
