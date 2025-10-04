@@ -287,15 +287,15 @@ export default function page() {
     isMatch,
   ]);
 
-  // useEffect(() => {
-  //   if (session) {
-  //     router.push('/');
-  //   }
-  // }, [session]);
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session]);
 
-  // useEffect(() => {
-  //   router.push('/');
-  // }, []);
+  useEffect(() => {
+    router.push('/');
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
