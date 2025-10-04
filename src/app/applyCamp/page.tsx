@@ -165,6 +165,8 @@ export default function page() {
       });
       router.push('/');
     } catch (err: any) {
+      console.log(err);
+
       if (err.response.data.msg == 'isRegis') {
         Swal.fire({
           icon: 'error',
