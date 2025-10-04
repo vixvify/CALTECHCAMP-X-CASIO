@@ -76,7 +76,21 @@ export default function page() {
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">เบอร์</h1>
               <p className="lg:text-md text-sm text-white">
-                {(data as any).call}
+                {(data as any).call1}
+              </p>
+            </li>
+            <li>
+              <h1 className="text-sm font-bold text-white lg:text-xl">
+                เบอร์ฉุกเฉิน
+              </h1>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).call2}
+              </p>
+            </li>
+            <li>
+              <h1 className="text-sm font-bold text-white lg:text-xl">สถานะ</h1>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).relation}
               </p>
             </li>
             <li>
@@ -105,7 +119,15 @@ export default function page() {
             </li>
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">
-                ลิงค์ Google Drive
+                ชื่ออาจารย์ที่ปรึกษา
+              </h1>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).name4}
+              </p>
+            </li>
+            <li>
+              <h1 className="text-sm font-bold text-white lg:text-xl">
+                เอกสาร ปพ.1 / ปพ.7 / บัตรนักเรียน
               </h1>
               <a
                 href={`${(data as any).url}`}
@@ -128,7 +150,9 @@ export default function page() {
               </a>
             </li>
             <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">สถานะ</h1>
+              <h1 className="text-sm font-bold text-white lg:text-xl">
+                สถานะการสมัคร
+              </h1>
               <p className="lg:text-md text-sm text-white">
                 {(data as any).stats}
               </p>
@@ -137,56 +161,15 @@ export default function page() {
           <ul className="flex max-w-100 flex-col gap-3">
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">
-                อธิบายรายละเอียดนวัตกรรม
+                รายละเอียดนวัตกรรม
               </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qi1}
-              </p>
-            </li>
-            <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">
-                นวัตกรรมนี้เกี่ยวกับ SDGs ยังไง
-              </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qi2}
-              </p>
-            </li>
-            <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">
-                นวัตกรรมนี้เกี่ยวกับเครื่องคิดเลขอย่างไร
-              </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qi3}
-              </p>
-            </li>
-            <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">
-                วัตถุประสงค์ของนวัตกรรมนี้
-              </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qi4}
-              </p>
-            </li>
-            <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">
-                หากทีมของน้องได้รับการรับเลือกเข้ามาค่าย
-                แต่ทีมของเพื่อนน้องไม่ติด น้องจะแก้ปัญหาอย่างไรเพื่อ
-                ไม่ให้เกิดปัญหาขึ้นในอนาคต
-              </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qm1}
-              </p>
-            </li>
-            <li>
-              <h1 className="text-sm font-bold text-white lg:text-xl">
-                หากทีมของน้องได้เข้าร่วมค่าย
-                และได้นําไอเดียนวัตกรรมของน้องมาแข่งกับคนอื่น
-                แต่น้องกลับไม่ติดอันดับเลย
-                ทีมของน้องจะมีวิธีจัดการอารมณ์ตัวเองอย่างไรบ้าง
-              </h1>
-              <p className="lg:text-md text-sm text-white">
-                {(data as any).qm2}
-              </p>
+              <a
+                href={`${(data as any).qi1}`}
+                target="blank"
+                className="lg:text-md text-sm text-cyan-300"
+              >
+                กดเพื่อดูไฟล์
+              </a>
             </li>
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">
@@ -194,7 +177,16 @@ export default function page() {
                 น้องจะทําต่อให้เสร็จหรือเลิกทําแล้วทิ้งไอเดียตรงนั้นไปเลย
               </h1>
               <p className="lg:text-md text-sm text-white">
-                {(data as any).qm3}
+                {(data as any).qm1}
+              </p>
+            </li>
+            <li>
+              <h1 className="text-sm font-bold text-white lg:text-xl">
+                สมมติว่ามีทีมคู่แข่งเข้ามาขอคำแนะนำในสื่งที่คุณถนัดคุณ
+                คิดว่าคุณควรให้คำแนะนำเขาอย่างไร
+              </h1>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).qm2}
               </p>
             </li>
             <li>
