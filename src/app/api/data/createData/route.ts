@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   const token = await getToken({ req });
   const parsed = userSchema.safeParse(data);
+  console.log('REQ BODY:', data);
 
   if (token) {
     return NextResponse.json({ msg: 'isRegis' }, { status: 400 });
@@ -39,6 +40,7 @@ export async function POST(req: NextRequest) {
     await prisma.user.create({ data: newData });
     return NextResponse.json({ msg: 'สมัครค่ายสำเร็จ' }, { status: 201 });
   } catch (err) {
+    console.error('PRISMA ERROR:', err);
     return NextResponse.json({ error: err }, { status: 400 });
   }
 }
