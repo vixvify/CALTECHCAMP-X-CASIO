@@ -307,7 +307,7 @@ export default function page() {
     return (
       <div className="flex flex-col items-center justify-center pt-35">
         <h1 className="text-4xl font-bold text-white lg:text-5xl">
-          สมัครเข้าร่วมค่าย
+          แก้ไขข้อมูล
         </h1>
         <div className="mt-10 mr-15 mb-4 ml-15 w-[90%] rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter sm:w-[80%] sm:p-6 md:w-[70%] md:p-8 lg:w-[40vw] lg:p-10">
           <form className="flex flex-col gap-5" onSubmit={confirmSend}>
@@ -319,6 +319,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('team')}
+              value={team}
             ></input>
             <div className="">
               <p className="text-xl text-white">โรงเรียน</p>
@@ -336,6 +337,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('school')}
+              value={school}
             ></input>
             {isSchool != undefined && !isSchool && (
               <p className="text-red-500">ไม่ต้องใส่คำว่าโรงเรียน</p>
@@ -351,6 +353,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('email')}
+              value={email}
             ></input>
             {isEmail != undefined && !isEmail && (
               <p className="text-red-500">ระบุอีเมลให้ถูกต้อง</p>
@@ -366,6 +369,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('call1')}
+              value={call1}
             ></input>
             {isCall1 != undefined && !isCall1 && (
               <p className="text-red-500">ระบุเบอร์ให้ถูกต้อง</p>
@@ -381,6 +385,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('call2')}
+              value={call2}
             ></input>
             {isCall2 != undefined && !isCall2 && (
               <p className="text-red-500">ระบุเบอร์ให้ถูกต้อง</p>
@@ -389,6 +394,7 @@ export default function page() {
             <select
               className="h-10 w-full rounded-md border-2 border-white bg-blue-950 text-xl text-white"
               onChange={inputValue('relation')}
+              value={relation}
             >
               <option value="">-- เลือกสถานะ --</option>
               <option value="บิดา">บิดา</option>
@@ -414,6 +420,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('name1')}
+              value={name1}
             ></input>
             <div className="">
               <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 2</p>
@@ -425,6 +432,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('name2')}
+              value={name2}
             ></input>
             <div className="">
               <p className="text-xl text-white">ชื่อ นามสกุล ผู้สมัครคนที่ 3</p>
@@ -436,6 +444,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('name3')}
+              value={name3}
             ></input>
             <div className="">
               <p className="text-xl text-white">
@@ -449,6 +458,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('name4')}
+              value={name4}
             ></input>
             <div className="">
               <p className="text-xl text-white">ลิงค์ Google Drive</p>
@@ -471,6 +481,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('url')}
+              value={url}
             ></input>
             {isUrl1 != undefined && !isUrl1 && (
               <p className="text-red-500">ระบุลิงค์ให้ถูกต้อง</p>
@@ -499,6 +510,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('clip')}
+              value={clip}
             ></input>
             {isClip != undefined && !isClip && (
               <p className="text-red-500">ระบุลิงค์ให้ถูกต้อง</p>
@@ -537,6 +549,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('qi1')}
+              value={qi1}
             ></input>
             {isUrl2 != undefined && !isUrl2 && (
               <p className="text-red-500">ระบุลิงค์ให้ถูกต้อง</p>
@@ -548,6 +561,7 @@ export default function page() {
             <textarea
               className="h-20 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('qm1')}
+              value={qm1}
             ></textarea>
             <p className="text-xl text-white">
               สมมติว่ามีทีมคู่แข่งเข้ามาขอคำแนะนำในสื่งที่คุณถนัดคุณ
@@ -556,6 +570,7 @@ export default function page() {
             <textarea
               className="h-20 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('qm2')}
+              value={qm2}
             ></textarea>
             <p className="mt-5 text-3xl font-extrabold text-white">
               -คำถามวิชาการ-
@@ -581,6 +596,7 @@ export default function page() {
                     : 'border-2 border-red-600'
               }`}
               onInput={inputValue('qa1')}
+              value={qa1}
             ></input>
             {isUrl3 != undefined && !isUrl3 && (
               <p className="text-red-500">ระบุลิงค์ให้ถูกต้อง</p>
@@ -596,6 +612,7 @@ export default function page() {
             <textarea
               className="h-50 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('qp1')}
+              value={qp1}
             ></textarea>
             <p className="mt-5 text-3xl font-extrabold text-white">
               -สมัครบัญชีผู้ใช้-
@@ -605,6 +622,7 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('username')}
+              value={username}
             ></input>
             <div className="">
               <p className="text-xl text-white">รหัสผ่าน</p>
@@ -651,7 +669,7 @@ export default function page() {
               className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black disabled:opacity-50"
               disabled={!canSend}
             >
-              สมัครเข้าร่วมค่าย
+              อัพเดตข้อมูล
             </button>
           </form>
         </div>
