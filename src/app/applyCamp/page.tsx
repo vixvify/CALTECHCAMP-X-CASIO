@@ -489,24 +489,15 @@ export default function page() {
           </p>
           <div className="">
             <p className="text-xl text-white">อธิบายรายละเอียดนวัตกรรม</p>
+            <a href="/form.pdf" target="blank">
+              <p className="text-md font-bold text-cyan-400">
+                👆 Click เพื่อดาวน์โหลดไฟล์ Word
+              </p>
+            </a>
             <p className="text-white">
               (ให้น้องกรอกข้อมูลลงในไฟล์ Word ที่จัดเตรียมไว้ให้
               แล้วส่งเป็นลิงค์ Google Drive)
             </p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <a href="/qa.pdf" target="blank">
-              <div className="">
-                <p className="text-md font-bold text-cyan-400">
-                  👆 Click เพื่อดาวน์โหลดไฟล์ Word
-                </p>
-              </div>
-            </a>
-            <a href="/qa.pdf" target="blank">
-              <p className="text-md font-bold text-cyan-400">
-                👆 Click เพื่อดูตัวอย่างไฟล์
-              </p>
-            </a>
           </div>
           <input
             type="text"

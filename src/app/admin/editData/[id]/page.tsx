@@ -25,9 +25,6 @@ export default function page() {
     qm2: string;
     qa1: string;
     qp1: string;
-    username: string;
-    password: string;
-    stats: string;
   }
 
   const [user, setUser] = useState<User>({
@@ -48,9 +45,6 @@ export default function page() {
     qm2: '',
     qa1: '',
     qp1: '',
-    username: '',
-    password: '',
-    stats: '',
   });
 
   const {
@@ -71,12 +65,8 @@ export default function page() {
     qm2,
     qa1,
     qp1,
-    username,
-    password,
-    stats,
   } = user;
 
-  const [confirmPass, setConfirmPass] = useState('');
   const [canSend, setCanSend] = useState(false);
   const router = useRouter();
   const { data: session } = useSession();
@@ -90,8 +80,6 @@ export default function page() {
     /^(?:https?:\/\/)?(?:drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=))([a-zA-Z0-9_-]{10,})/;
   const checkClip =
     /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-  const upper = /[A-Z]/;
-  const lower = /[a-z]/;
   const num = /[0-9]/;
   const [isSchool, setIsSchool] = useState(undefined as any);
   const [isEmail, setIsEmail] = useState(undefined as any);
@@ -101,8 +89,6 @@ export default function page() {
   const [isClip, setisClip] = useState(undefined as any);
   const [isUrl2, setisUrl2] = useState(undefined as any);
   const [isUrl3, setisUrl3] = useState(undefined as any);
-  const [isPass, setIsPass] = useState(undefined as any);
-  const [isMatch, setIsMatch] = useState(undefined as any);
 
   const inputValue = (topic: string) => {
     return (e: any) => setUser({ ...user, [topic]: e.target.value.trim() });
@@ -173,9 +159,6 @@ export default function page() {
         qm2: '',
         qa1: '',
         qp1: '',
-        username: '',
-        password: '',
-        stats: '',
       });
       router.push('/');
     } catch (err: any) {
@@ -208,10 +191,7 @@ export default function page() {
       qm1 &&
       qm2 &&
       qa1 &&
-      qp1 &&
-      username &&
-      password &&
-      confirmPass
+      qp1
     ) {
       setIsFilled(true);
     } else {
@@ -235,9 +215,6 @@ export default function page() {
     qm2,
     qa1,
     qp1,
-    username,
-    password,
-    confirmPass,
   ]);
 
   useEffect(() => {
@@ -249,13 +226,7 @@ export default function page() {
     setisClip(clip === '' ? undefined : checkClip.test(clip));
     setisUrl2(qi1 === '' ? undefined : checkUrl.test(qi1));
     setisUrl3(qa1 === '' ? undefined : checkUrl.test(qa1));
-    setIsPass(
-      password === ''
-        ? undefined
-        : upper.test(password) && lower.test(password) && num.test(password),
-    );
-    setIsMatch(confirmPass === '' ? undefined : confirmPass == password);
-  }, [email, school, url, clip, password, call1, call2, qi1, confirmPass, qa1]);
+  }, [email, school, url, clip, , call1, call2, qi1, qa1]);
 
   useEffect(() => {
     if (
@@ -264,15 +235,11 @@ export default function page() {
       !isCall2 ||
       !isEmail ||
       !isSchool ||
-      !isPass ||
       !isClip ||
       !isUrl1 ||
       !isUrl2 ||
-      !isUrl3 ||
-      !isMatch
+      !isUrl3
     ) {
-      setCanSend(false);
-    } else if (password !== confirmPass) {
       setCanSend(false);
     } else {
       setCanSend(true);
@@ -283,16 +250,14 @@ export default function page() {
     isCall2,
     isEmail,
     isSchool,
-    isPass,
     isClip,
     isUrl1,
     isUrl2,
     isUrl3,
-    isMatch,
   ]);
 
   useEffect(() => {
-    if (!(session as any).user.admin) {
+    if (!(session as any)?.user?.admin) {
       router.push('/');
     }
   }, [session]);
@@ -486,20 +451,7 @@ export default function page() {
             {isUrl1 != undefined && !isUrl1 && (
               <p className="text-red-500">ระบุลิงค์ให้ถูกต้อง</p>
             )}
-            <div className="">
-              <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
-              <a href="clipdetail.pdf" target="blank">
-                <div className="">
-                  <p className="text-md font-bold text-cyan-400">
-                    👆 Click เพื่อดูรายละเอียดของคลิปวิดิโอ
-                  </p>
-                  <p className="text-white">
-                    (ความยาวไม่เกิน 5 นาที เผยแพร่ผ่านช่องทาง Youtube
-                    โดยเปิดเป็น Unlisted)
-                  </p>
-                </div>
-              </a>
-            </div>
+            <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
             <input
               type="text"
               className={`h-10 w-full rounded-md text-white ${
@@ -524,20 +476,6 @@ export default function page() {
                 (ให้น้องกรอกข้อมูลลงในไฟล์ Word ที่จัดเตรียมไว้ให้
                 แล้วส่งเป็นลิงค์ Google Drive)
               </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <a href="/qa.pdf" target="blank">
-                <div className="">
-                  <p className="text-md font-bold text-cyan-400">
-                    👆 Click เพื่อดาวน์โหลดไฟล์ Word
-                  </p>
-                </div>
-              </a>
-              <a href="/qa.pdf" target="blank">
-                <p className="text-md font-bold text-cyan-400">
-                  👆 Click เพื่อดูตัวอย่างไฟล์
-                </p>
-              </a>
             </div>
             <input
               type="text"
@@ -575,17 +513,6 @@ export default function page() {
             <p className="mt-5 text-3xl font-extrabold text-white">
               -คำถามวิชาการ-
             </p>
-            <a href="/qa.pdf" target="blank">
-              <div className="">
-                <p className="text-md font-bold text-cyan-400">
-                  👆 Click เพื่อดูโจทย์
-                </p>
-                <p className="text-white">
-                  (ให้น้องทำโจทย์ผ่านทาง Ipad/tablet หรือเขียนลงในกระดาษทั้ง 3
-                  ข้อ แล้วส่งเป็นลิงค์ Google Drive)
-                </p>
-              </div>
-            </a>
             <input
               type="text"
               className={`h-10 w-full rounded-md text-white ${
@@ -604,68 +531,11 @@ export default function page() {
             <p className="mt-5 text-3xl font-extrabold text-white">
               -คำถามวัดการวางแผน-
             </p>
-            <a href="/q.pdf" target="blank">
-              <p className="text-md font-bold text-cyan-400">
-                👆 Click เพื่อดูโจทย์
-              </p>
-            </a>
             <textarea
               className="h-50 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('qp1')}
               value={qp1}
             ></textarea>
-            <p className="mt-5 text-3xl font-extrabold text-white">
-              -สมัครบัญชีผู้ใช้-
-            </p>
-            <p className="text-xl text-white">ชื่อผู้ใช้</p>
-            <input
-              type="text"
-              className="h-10 w-full rounded-md border-2 border-white text-white"
-              onInput={inputValue('username')}
-              value={username}
-            ></input>
-            <div className="">
-              <p className="text-xl text-white">รหัสผ่าน</p>
-              <p className="text-white">
-                (ประกอบด้วย ตัวพิมพ์ใหญ่ ตัวพิมพ์เล็ก และตัวเลข อย่างน้อย 1 ตัว)
-              </p>
-            </div>
-            <input
-              type="password"
-              className={`h-10 w-full rounded-md text-white ${
-                isPass === undefined
-                  ? 'border-2 border-white'
-                  : isPass
-                    ? 'border-2 border-white'
-                    : 'border-2 border-red-600'
-              }`}
-              onInput={inputValue('password')}
-              value={password}
-            ></input>
-            {isPass != undefined && !isPass && (
-              <p className="text-red-500">ระบุรหัสผ่านให้ถูกต้อง</p>
-            )}
-            <p className="text-xl text-white">ยืนยันรหัสผ่าน</p>
-            <input
-              type="password"
-              className={`h-10 w-full rounded-md text-white ${
-                isMatch === undefined
-                  ? 'border-2 border-white'
-                  : isMatch
-                    ? 'border-2 border-white'
-                    : 'border-2 border-red-600'
-              }`}
-              onInput={(e: any) => setConfirmPass(e.target.value)}
-              value={password}
-            ></input>
-            {isMatch != undefined && !isMatch && (
-              <p className="text-red-500">รหัสผ่านไม่ตรงกัน</p>
-            )}
-            {!isFilled && (
-              <p className="text-xl text-red-500">
-                กรุณากรอกข้อมูลให้ครบและถูกต้อง
-              </p>
-            )}
             <button
               type="submit"
               className="mt-5 h-15 cursor-pointer rounded-xl border-2 border-white bg-white text-2xl text-black disabled:opacity-50"

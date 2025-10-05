@@ -14,12 +14,9 @@ export async function PUT(req: NextRequest, { params }: { params: any }) {
   }
 
   delete data['id'];
-  const { password } = data;
-  const newPass = await bcrypt.hash(password, 10);
-  const newData = { ...data, password: newPass };
 
   try {
-    await prisma.user.update({ where: { id }, data: newData });
+    await prisma.user.update({ where: { id }, data });
     return NextResponse.json({ msg: 'แก้ไขสำเร็จ' }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 400 });
