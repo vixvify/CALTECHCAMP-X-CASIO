@@ -293,10 +293,6 @@ export default function page() {
     }
   }, [session]);
 
-  useEffect(() => {
-    router.push('/');
-  }, []);
-
   return (
     <div className="flex flex-col items-center justify-center pt-35">
       <h1 className="text-4xl font-bold text-white lg:text-5xl">
