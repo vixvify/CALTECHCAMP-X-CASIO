@@ -27,7 +27,7 @@ export default function Home() {
           พร้อมกิจกรรมและเวิร์กชอปสุดเข้มข้นตลอด 3 วัน 2 คืน
           <p className="mt-10">
             <a
-              href="detail.pdf"
+              href="รายละเอียดการรับสมัคร.pdf"
               target="blank"
               className="rounded-2xl bg-white p-2 text-sm font-bold text-[#101557] lg:p-3 lg:text-xl"
             >

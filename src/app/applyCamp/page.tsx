@@ -454,7 +454,7 @@ export default function page() {
           )}
           <div className="">
             <p className="text-xl text-white">ลิงค์คลิปแนะนำนวัตกรรม</p>
-            <a href="clipdetail.pdf" target="blank">
+            <a href="รายละเอียดคลิปวิดิโอ.pdf" target="blank">
               <div className="">
                 <p className="text-md font-bold text-cyan-400">
                   👆 Click เพื่อดูรายละเอียดของคลิปวิดิโอ
@@ -485,7 +485,7 @@ export default function page() {
           </p>
           <div className="">
             <p className="text-xl text-white">อธิบายรายละเอียดนวัตกรรม</p>
-            <a href="/form.pdf" target="blank">
+            <a href="/Template.pdf" target="blank">
               <p className="text-md font-bold text-cyan-400">
                 👆 Click เพื่อดาวน์โหลดไฟล์ Template
               </p>
@@ -528,7 +528,7 @@ export default function page() {
           <p className="mt-5 text-3xl font-extrabold text-white">
             -คำถามวิชาการ-
           </p>
-          <a href="/qa.pdf" target="blank">
+          <a href="/คำถามวิชาการ.pdf" target="blank">
             <div className="">
               <p className="text-md font-bold text-cyan-400">
                 👆 Click เพื่อดูโจทย์
@@ -556,7 +556,7 @@ export default function page() {
           <p className="mt-5 text-3xl font-extrabold text-white">
             -คำถามวัดการวางแผน-
           </p>
-          <a href="/q.pdf" target="blank">
+          <a href="/คำถามวัดการวางแผน.pdf" target="blank">
             <p className="text-md font-bold text-cyan-400">
               👆 Click เพื่อดูโจทย์
             </p>
