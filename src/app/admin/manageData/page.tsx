@@ -84,7 +84,7 @@ export default function page() {
     );
   } else {
     return (
-      <div className="flex flex-col items-center justify-center pt-40">
+      <div className="mr-auto ml-auto flex w-[80vw] flex-col items-center justify-center pt-40">
         <div className="">
           <h1 className="text-center text-4xl text-white">ข้อมูลผู้สมัคร</h1>
           <div className="">
