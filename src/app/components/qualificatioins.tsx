@@ -35,7 +35,7 @@ export default function Qualifications() {
         </h1>
         <h1 className="text-sm text-white md:text-base lg:text-lg">
           ⚪ สามารถเข้าร่วมกิจกรรมค่ายได้ระหว่างวันที่ 7 ธันวาคม และ 12-14
-          ธันวาคม
+          ธันวาคม 2568
         </h1>
       </div>
     </div>
