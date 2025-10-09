@@ -301,7 +301,7 @@ export default function page() {
       <div className="mt-10 mr-15 mb-4 ml-15 w-[90%] rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-4 backdrop-blur-lg backdrop-filter sm:w-[80%] sm:p-6 md:w-[70%] md:p-8 lg:w-[40vw] lg:p-10">
         <form className="flex flex-col gap-5" onSubmit={confirmSend}>
           <p className="text-3xl font-extrabold text-white">-รายละเอียดทีม-</p>
-          <p className="text-xl text-white">ชื่อนวัตกรรม</p>
+          <p className="text-xl text-white">ชื่อโครงงาน</p>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"

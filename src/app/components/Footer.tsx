@@ -1,6 +1,10 @@
+import Image from 'next/image';
+
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 bg-white py-6 text-center">
+    <footer className="flex w-full flex-col items-center border-t border-gray-200 bg-white py-6 text-center">
+      <p>ผู้สนับสนุนหลักอย่างเป็นทางการ</p>
+      <Image src={'/sponsor.png'} width={300} height={50} alt="logo"></Image>
       <p className="text-sm text-gray-600">© 2025 Calctech Camp X Casio</p>
       <p className="text-sm text-gray-600">
         ติดต่อ:{' '}

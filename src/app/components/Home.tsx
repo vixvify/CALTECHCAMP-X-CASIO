@@ -20,7 +20,7 @@ export default function Home() {
           </h1>
         </div>
         <p className="max-w-[250px] text-lg text-white md:max-w-[500px] md:text-xl lg:max-w-[600px] lg:text-2xl">
-          Calctech Camp x Casio ค่ายแข่งขันนวัตกรรมตามหลัก SDGs ที่พาน้องๆ
+          CalcTech Camp x Casio ค่ายแข่งขันนวัตกรรมตามหลัก SDGs ที่พาน้องๆ
           <span className="bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text font-bold text-transparent">
             เรียนรู้คณิตศาสตร์กับเครื่องคิดเลขวิทยาศาสตร์
           </span>
