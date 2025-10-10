@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
         if (!isMatch) return null;
 
         const isAdmin = await bcrypt.compare(
-          'hexTeam2550',
+          'hexAdminTeam2025**',
           (user as any).password,
         );
 
