@@ -19,6 +19,7 @@ model User {
   name2 String 
   name3 String 
   name4 String 
+  name5 String 
   url String
   clip String
   qi1 String

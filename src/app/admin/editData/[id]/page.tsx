@@ -18,6 +18,7 @@ export default function page() {
     name2: string;
     name3: string;
     name4: string;
+    name5: string;
     url: string;
     clip: string;
     qi1: string;
@@ -38,6 +39,7 @@ export default function page() {
     name2: '',
     name3: '',
     name4: '',
+    name5: '',
     url: '',
     clip: '',
     qi1: '',
@@ -58,6 +60,7 @@ export default function page() {
     name2,
     name3,
     name4,
+    name5,
     url,
     clip,
     qi1,
@@ -152,6 +155,7 @@ export default function page() {
         name2: '',
         name3: '',
         name4: '',
+        name5: '',
         url: '',
         clip: '',
         qi1: '',
@@ -185,6 +189,7 @@ export default function page() {
       name2 &&
       name3 &&
       name4 &&
+      name5 &&
       url &&
       clip &&
       qi1 &&
@@ -208,6 +213,7 @@ export default function page() {
     name2,
     name3,
     name4,
+    name5,
     url,
     clip,
     qi1,
@@ -413,7 +419,7 @@ export default function page() {
             ></input>
             <div className="">
               <p className="text-xl text-white">
-                ชื่อ นามสกุล อาจารย์ที่ปรึกษา
+                ชื่อ นามสกุล อาจารย์ที่ปรึกษาท่านที่ 1
               </p>
               <p className="text-white">
                 (ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)
@@ -423,6 +429,20 @@ export default function page() {
               type="text"
               className="h-10 w-full rounded-md border-2 border-white text-white"
               onInput={inputValue('name4')}
+              value={name4}
+            ></input>
+            <div className="">
+              <p className="text-xl text-white">
+                ชื่อ นามสกุล อาจารย์ที่ปรึกษาท่านที่ 2
+              </p>
+              <p className="text-white">
+                (ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)
+              </p>
+            </div>
+            <input
+              type="text"
+              className="h-10 w-full rounded-md border-2 border-white text-white"
+              onInput={inputValue('name5')}
               value={name4}
             ></input>
             <div className="">

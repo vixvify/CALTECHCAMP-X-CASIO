@@ -17,6 +17,7 @@ export default function page() {
     name2: string;
     name3: string;
     name4: string;
+    name5: string;
     url: string;
     clip: string;
     qi1: string;
@@ -40,6 +41,7 @@ export default function page() {
     name2: '',
     name3: '',
     name4: '',
+    name5: '',
     url: '',
     clip: '',
     qi1: '',
@@ -63,6 +65,7 @@ export default function page() {
     name2,
     name3,
     name4,
+    name5,
     url,
     clip,
     qi1,
@@ -72,7 +75,6 @@ export default function page() {
     qp1,
     username,
     password,
-    stats,
   } = user;
   const [confirmPass, setConfirmPass] = useState('');
   const [canSend, setCanSend] = useState(false);
@@ -100,6 +102,7 @@ export default function page() {
   const [isUrl3, setisUrl3] = useState(undefined as any);
   const [isPass, setIsPass] = useState(undefined as any);
   const [isMatch, setIsMatch] = useState(undefined as any);
+  const [agree, setAgree] = useState(false);
 
   const inputValue = (topic: string) => {
     return (e: any) => setUser({ ...user, [topic]: e.target.value.trim() });
@@ -152,6 +155,7 @@ export default function page() {
         name2: '',
         name3: '',
         name4: '',
+        name5: '',
         url: '',
         clip: '',
         qi1: '',
@@ -198,6 +202,7 @@ export default function page() {
       name2 &&
       name3 &&
       name4 &&
+      name5 &&
       url &&
       clip &&
       qi1 &&
@@ -207,7 +212,8 @@ export default function page() {
       qp1 &&
       username &&
       password &&
-      confirmPass
+      confirmPass &&
+      agree
     ) {
       setIsFilled(true);
     } else {
@@ -224,6 +230,7 @@ export default function page() {
     name2,
     name3,
     name4,
+    name5,
     url,
     clip,
     qi1,
@@ -234,6 +241,7 @@ export default function page() {
     username,
     password,
     confirmPass,
+    agree,
   ]);
 
   useEffect(() => {
@@ -419,13 +427,26 @@ export default function page() {
             onInput={inputValue('name3')}
           ></input>
           <div className="">
-            <p className="text-xl text-white">ชื่อ นามสกุล อาจารย์ที่ปรึกษา</p>
+            <p className="text-xl text-white">
+              ชื่อ นามสกุล อาจารย์ที่ปรึกษาท่านที่ 1
+            </p>
             <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
           </div>
           <input
             type="text"
             className="h-10 w-full rounded-md border-2 border-white text-white"
             onInput={inputValue('name4')}
+          ></input>
+          <div className="">
+            <p className="text-xl text-white">
+              ชื่อ นามสกุล อาจารย์ที่ปรึกษาท่านที่ 2
+            </p>
+            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
+          </div>
+          <input
+            type="text"
+            className="h-10 w-full rounded-md border-2 border-white text-white"
+            onInput={inputValue('name5')}
           ></input>
           <div className="">
             <p className="text-xl text-white">ลิงค์ Google Drive (โฟลเดอร์)</p>
@@ -609,6 +630,18 @@ export default function page() {
           {isMatch != undefined && !isMatch && (
             <p className="text-red-500">รหัสผ่านไม่ตรงกัน</p>
           )}
+          <div className="mt-5 flex items-center justify-center gap-5">
+            <input
+              type="checkbox"
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
+              className="h-5 w-5"
+            />
+            <p className="text-md text-white">
+              ข้าพเจ้ารับทราบว่า ถ้าไม่สามารถเข้าร่วมกิจกรรมได้ในวันใดวันหนึ่ง
+              ระหว่างวันที่ 7 ธันวาคม และ 12-14 ธันวาคม จะถือว่าสละสิทธิ์
+            </p>
+          </div>
           {!isFilled && (
             <p className="text-xl text-red-500">
               กรุณากรอกข้อมูลให้ครบและถูกต้อง

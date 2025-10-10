@@ -119,10 +119,18 @@ export default function page() {
             </li>
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">
-                ชื่ออาจารย์ที่ปรึกษา
+                ชื่ออาจารย์ที่ปรึกษาท่านที่ 1
               </h1>
               <p className="lg:text-md text-sm text-white">
                 {(data as any).name4}
+              </p>
+            </li>
+            <li>
+              <h1 className="text-sm font-bold text-white lg:text-xl">
+                ชื่ออาจารย์ที่ปรึกษาท่านที่ 2
+              </h1>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).name5}
               </p>
             </li>
             <li>
