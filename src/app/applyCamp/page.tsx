@@ -441,7 +441,9 @@ export default function page() {
             <p className="text-xl text-white">
               ชื่อ นามสกุล อาจารย์ที่ปรึกษาท่านที่ 2
             </p>
-            <p className="text-white">(ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม)</p>
+            <p className="text-white">
+              (ไม่ต้องใส่คำนำหน้า เช่น แม็ก รักสยาม / หากไม่มี ใส่ " - ")
+            </p>
           </div>
           <input
             type="text"
