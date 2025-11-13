@@ -46,16 +46,13 @@ export default function page() {
   } else {
     return (
       <div className="flex flex-col items-center justify-center">
-        <h1 className="mt-30 mb-5 text-2xl font-bold text-white lg:text-4xl">
-          ข้อมูลผู้สมัคร ทีม {(data as any).team}
-        </h1>
-        <div className="bg-opacity-0 mt-5 mr-4 mb-10 ml-4 flex flex-col gap-5 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-5 backdrop-blur-lg backdrop-filter lg:mr-0 lg:ml-0 lg:flex-row lg:p-10 lg:pr-20 lg:pl-20">
+        <div className="bg-opacity-0 mt-30 mr-4 mb-10 ml-4 flex flex-col gap-5 rounded-2xl border border-gray-100 bg-gray-400/20 bg-clip-padding p-5 backdrop-blur-lg backdrop-filter lg:mr-0 lg:ml-0 lg:flex-row lg:p-10 lg:pr-20 lg:pl-20">
           <ul className="flex flex-col gap-3">
             <li>
               <h1 className="text-sm font-bold text-white lg:text-xl">
                 ชื่อนวัตกรรม
               </h1>
-              <p className="lg:text-md text-sm text-white">
+              <p className="lg:text-md max-w-100 text-sm text-white">
                 {(data as any).team}
               </p>
             </li>

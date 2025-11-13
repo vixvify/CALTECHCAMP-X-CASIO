@@ -88,7 +88,7 @@ export default function page() {
         <div className="">
           <h1 className="text-center text-4xl text-white">ข้อมูลผู้สมัคร</h1>
           <div className="">
-            <ul className="mt-20 flex flex-col items-center justify-center">
+            <ul className="mt-10 flex flex-col items-center justify-center">
               <li className="grid w-[90%] grid-cols-3 items-center justify-center gap-x-4 border-b border-gray-500 py-2 pb-5 text-center text-sm font-extrabold text-white lg:w-full lg:text-2xl">
                 <h1>ชื่อนวัตกรรม</h1>
                 <h1>สถานะ</h1>
