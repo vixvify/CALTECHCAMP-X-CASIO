@@ -296,10 +296,8 @@ export default function page() {
   ]);
 
   useEffect(() => {
-    if (session) {
-      router.push('/');
-    }
-  }, [session]);
+    router.push('/');
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center pt-35">
