@@ -210,13 +210,9 @@ export default function page() {
               <h1 className="text-sm font-bold text-white lg:text-xl">
                 คำถามวัดการวางแผน
               </h1>
-              <a
-                href={`${(data as any).qp1}`}
-                target="blank"
-                className="lg:text-md text-sm text-cyan-300"
-              >
-                กดเพื่อดูไฟล์
-              </a>
+              <p className="lg:text-md text-sm text-white">
+                {(data as any).qp1}
+              </p>
             </li>
           </ul>
         </div>
