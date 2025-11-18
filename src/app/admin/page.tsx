@@ -50,7 +50,7 @@ export default function page() {
         <h1 className="text-3xl font-extrabold text-white lg:text-6xl">
           Admin Dashboard
         </h1>
-        <div className="flex flex-col items-center justify-center gap-5 lg:flex-row">
+        <div className="flex max-w-[60vw] flex-col flex-wrap items-center justify-center gap-5 lg:flex-row">
           <div className="flex w-[200px] flex-col items-center gap-1 rounded-2xl bg-white p-4 lg:w-[300px]">
             <h1 className="text-xl lg:text-2xl">จำนวนผู้สมัคร</h1>
             <h1 className="text-2xl font-extrabold lg:text-4xl">
@@ -67,6 +67,18 @@ export default function page() {
             <h1 className="text-sm lg:text-2xl">จำนวนผู้ได้รับการคัดเลือก</h1>
             <h1 className="text-2xl font-extrabold lg:text-4xl">
               {(data as any).pass}
+            </h1>
+          </div>
+          <div className="flex w-[200px] flex-col items-center gap-1 rounded-2xl bg-white p-4 lg:w-[300px]">
+            <h1 className="text-sm lg:text-2xl">จำนวนผู้ยืนยันสิทธิ์</h1>
+            <h1 className="text-2xl font-extrabold lg:text-4xl">
+              {(data as any).confirm}
+            </h1>
+          </div>
+          <div className="flex w-[200px] flex-col items-center gap-1 rounded-2xl bg-white p-4 lg:w-[300px]">
+            <h1 className="text-sm lg:text-2xl">จำนวนผู้สละสิทธิ์</h1>
+            <h1 className="text-2xl font-extrabold lg:text-4xl">
+              {(data as any).cancel}
             </h1>
           </div>
         </div>

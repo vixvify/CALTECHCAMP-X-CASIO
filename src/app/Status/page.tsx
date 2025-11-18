@@ -28,6 +28,7 @@ export default function Timeline() {
   const [stats, setStats] = useState('อยู่ระหว่างการคัดเลือก');
   const [statsIndex, setStatsIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const id = (session as any)?.user?.id;
 
   const getStats = async () => {
     if ((session as any)?.user?.id) {
@@ -68,6 +69,47 @@ export default function Timeline() {
       setStatsIndex(3);
     }
   }, [stats]);
+
+  const confirmStats = async (newstats: string) => {
+    Swal.fire({
+      title: `ต้องการที่จะ${newstats}หรือไม่`,
+      text: 'คุณไม่สามารถเปลี่ยนแปลงข้อมูลภายหลังได้',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${newstats}`,
+      cancelButtonText: 'ยกเลิก',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        updateStats(newstats);
+      }
+    });
+  };
+
+  const updateStats = async (newstats: string) => {
+    Swal.fire({
+      title: 'กำลังดำเนินการ',
+      showConfirmButton: false,
+      showCloseButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+    });
+    try {
+      await axios.patch(`/api/data/updateStats/${id}`, { stats: newstats });
+      Swal.fire({
+        title: `${newstats}สำเร็จ`,
+        icon: 'success',
+        draggable: true,
+      });
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: `${newstats}ไม่สำเร็จ`,
+      });
+    }
+  };
 
   useEffect(() => {
     if (!session) {
@@ -115,7 +157,23 @@ export default function Timeline() {
                     {item.title}
                   </h2>
                   {statsIndex == index && stats == 'ผ่านการคัดเลือก' && (
-                    <p>ผ่านการคัดเลือก ✅</p>
+                    <div className="flex flex-col gap-5">
+                      <p>ผ่านการคัดเลือก ✅</p>
+                      <div className="flex items-center justify-center gap-5">
+                        <button
+                          className="rounded-md bg-green-600 p-3 text-white"
+                          onClick={() => confirmStats('ยืนยันสิทธิ์')}
+                        >
+                          ยืนยันสิทธิ์
+                        </button>
+                        <button
+                          className="rounded-md bg-red-600 p-3 text-white"
+                          onClick={() => confirmStats('สละสิทธิ์')}
+                        >
+                          สละสิทธิ์
+                        </button>
+                      </div>
+                    </div>
                   )}
                   {statsIndex == index && stats == 'เป็นตัวสำรอง' && (
                     <p>เป็นตัวสำรอง</p>
@@ -125,7 +183,23 @@ export default function Timeline() {
                   )}
                   {statsIndex == index &&
                     stats == 'ผ่านการคัดเลือก (สำรอง)' && (
-                      <p>ผ่านการคัดเลือก (สำรอง) ✅</p>
+                      <div className="flex flex-col gap-5">
+                        <p>ผ่านการคัดเลือก ✅</p>
+                        <div className="flex items-center justify-center gap-5">
+                          <button
+                            className="rounded-md bg-green-600 p-3 text-white"
+                            onClick={() => confirmStats('ยืนยันสิทธิ์')}
+                          >
+                            ยืนยันสิทธิ์
+                          </button>
+                          <button
+                            className="rounded-md bg-red-600 p-3 text-white"
+                            onClick={() => confirmStats('สละสิทธิ์')}
+                          >
+                            สละสิทธิ์
+                          </button>
+                        </div>
+                      </div>
                     )}
                   {statsIndex == index &&
                     stats == 'ไม่ผ่านการคัดเลือก (สำรอง)' && (
@@ -134,7 +208,7 @@ export default function Timeline() {
                   {statsIndex == index && stats == 'ยืนยันสิทธิ์' && (
                     <p>ยืนยันสิทธิ์ ✅</p>
                   )}
-                  {statsIndex == 3 && stats == 'สละสิทธิ์' && (
+                  {statsIndex == index && stats == 'สละสิทธิ์' && (
                     <p>สละสิทธิ์ ❌</p>
                   )}
                 </div>
